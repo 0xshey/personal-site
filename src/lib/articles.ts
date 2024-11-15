@@ -24,6 +24,7 @@ export interface articleTypes {
   }
 
 export default async function getArticles (slug?: string) {
+	const hashnodeHost = '0xshey.hashnode.dev'
 	const res = await fetch('https://gql.hashnode.com', {
 		method: 'POST',
 		headers: {
@@ -33,7 +34,7 @@ export default async function getArticles (slug?: string) {
 		body: JSON.stringify({
 			query: `
 				query SinglePostByPublication {
-					publication(host: "0xshey.hashnode.dev") {
+					publication(host: "${hashnodeHost}") {
 						id
 						posts(first: 10) {
 							totalDocuments

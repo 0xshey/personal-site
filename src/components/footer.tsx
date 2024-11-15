@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-export function Footer() {
+export default function Footer() {
 	const today = new Date();
 	return (
 		<footer className="text-center mb-8 mt-20 flex flex-col gap-2 md:flex-row  relative items-center justify-between p-4">

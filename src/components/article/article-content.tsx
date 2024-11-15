@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { articleTypes } from "@/api/articles";
+import { articleTypes } from "@/lib/articles";
 import styles from "./article-content.module.css";
 
 export default function ArticleContent({ article }: { article: articleTypes }) {
