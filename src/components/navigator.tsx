@@ -1,9 +1,4 @@
 import Link from "next/link";
-import {
-	GitHubLogoIcon,
-	LinkedInLogoIcon,
-	InstagramLogoIcon,
-} from "@radix-ui/react-icons";
 
 export default function Navigator({ className }: { className?: string }) {
 	return (

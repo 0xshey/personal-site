@@ -6,11 +6,12 @@ import getArticles, { articleTypes } from "@/lib/articles";
 import { ArticleContent } from "@/components/article";
 
 export default function Slug() {
-	const { slug } = useParams();
+	const params = useParams();
 	const [article, setArticle] = useState<null | articleTypes>(null);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
+		const slug = params.slug as string;
 		getArticles(slug).then((data) => {
 			setArticle(data);
 			setLoading(false);
