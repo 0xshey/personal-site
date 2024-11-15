@@ -30,27 +30,39 @@ export default function Home() {
 
 	return (
 		<div className="max-w-md md:max-w-5xl h-[100%] flex-grow">
-			<div className="font-sans text-2xl md:text-4xl text-center font-medium text-balance flex flex-col items-center gap-4 md:mt-[20vh] mt-[5vh]">
+			<div className="font-sans text-2xl md:text-4xl text-center font-medium text-balance flex flex-col items-center gap-4 md:mt-[20vh] mt-[10vh]">
 				<p>
-					Hey! I&apos;m Shey Laplanche, a full stack developer from
-					Australia based out of San Francisco.
+					Hey, I&apos;m Shey Laplanche! I am a full-stack developer
+					that loves making random software and projects, but have
+					never found a good space to share them with the world.
 				</p>
 				<p>
-					Things that engage me are basketball, statistics and
-					beautiful and functional design – products, architecture,
-					codebases, interfaces and experiences.
+					As a big fan of basketball, statistics and beautiful,
+					functional design, this site serves as a place for me to
+					share these muses and projects I work on – often revolving
+					around these things.
 				</p>
 				<p>
-					My work mainly involves Python for data analysis and backend
-					development, and React frameworks for frontend development.
+					I typically favour Python for any analytical or backend
+					development and React frameworks for making them tangible,
+					but love to experiment. Recently I have steered my focus
+					towards developing higher quality user interfaces and
+					experiences.
 				</p>
 				<p>
-					Keep an eye out for my articles where I plan to share more
-					on the projects I am and have worked on.
+					Check out the{" "}
+					<Link
+						className="hover:underline text-blue-950"
+						href={"/articles"}
+					>
+						articles
+					</Link>{" "}
+					where I'll post photo&apos;s, projects and more content
+					about what I do.
 				</p>
 			</div>
 
-			<div className="flex flex-col items-center justify-center gap-8 w-full mt-12 md:mt-24 md:flex-row md:gap-16">
+			<div className="flex flex-col items-center justify-center gap-8 w-full mt-24 md:flex-row md:gap-16">
 				{
 					// Contact
 					contactItems.map((item) => (
