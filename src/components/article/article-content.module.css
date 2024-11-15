@@ -1,0 +1,52 @@
+.article p,
+.article h1, 
+.article h2, 
+.article h3, 
+.article h4, 
+.article h5, 
+.article h6 { @apply font-sans text-pretty font-[450]; }
+
+.article h1 { 
+	@apply text-2xl tracking-tight leading-tight mt-8; 
+}
+.article h2 { 
+	@apply text-xl leading-snug mt-8; 
+}
+.article h3 { 
+	@apply text-lg leading-snug mt-8; 
+}
+
+.article p {
+	@apply text-gray-800 mt-4 ;
+}
+
+.article strong {
+	@apply font-[590];
+}
+
+.article a {
+	@apply text-blue-800;
+}
+
+.article a:hover {
+	@apply underline underline-offset-1;
+}
+
+.article img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 20px 0;
+}
+
+.article code {
+	@apply font-mono text-sm bg-gray-100 p-1 rounded-sm;
+}
+
+.article ul, .article ol {
+	margin: 20px 0;
+}
+
+.article ul li, .article ol li {
+	@apply list-disc list-inside font-sans text-gray-800;
+}
