@@ -57,7 +57,7 @@ export default function Home() {
 					>
 						articles
 					</Link>{" "}
-					where I'll post photo&apos;s, projects and more content
+					where I&apos;ll post photo&apos;s, projects and more content
 					about what I do.
 				</p>
 			</div>
