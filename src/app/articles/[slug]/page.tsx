@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import { differenceInCalendarDays, format } from "date-fns";
 import getArticles, { articleTypes } from "@/lib/articles";
 import { ArticleContent } from "@/components/article";
+import { cn } from "@/lib/utils";
 
 export default function Slug() {
 	const params = useParams();
@@ -16,7 +17,7 @@ export default function Slug() {
 			setArticle(data);
 			setLoading(false);
 		});
-	}, []);
+	}, [params.slug]);
 
 	if (loading) {
 		return <div>Loading...</div>;
@@ -33,8 +34,8 @@ export default function Slug() {
 				<div className="max-w-md md:max-w-3xl w-full flex flex-col items-center justify-center gap-4 py-12 md:py-32">
 					<div className="flex items-center gap-2 text-sm">
 						{differenceInCalendarDays(
-							article.publishedAt,
-							new Date()
+							new Date(),
+							new Date(article.publishedAt)
 						) < 7 ? (
 							<span className="min-h-1.5 min-w-1.5 bg-green-600 rounded-full" />
 						) : null}
@@ -45,10 +46,15 @@ export default function Slug() {
 							)}
 						</p>
 					</div>
-					<h1 className="text-center text-5xl tracking-tighter">
+					<h1
+						className={cn(
+							"px-2 text-center tracking-tighter text-balance md:text-5xl",
+							article.title.length > 15 ? "text-4xl" : ""
+						)}
+					>
 						{article.title}
 					</h1>
-					<p className="text-center text-balance w-4/5">
+					<p className="text-center text-pretty w-4/5">
 						{article.seo.description}
 					</p>
 				</div>

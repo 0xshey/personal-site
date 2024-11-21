@@ -33,10 +33,7 @@
 }
 
 .article img {
-	max-width: 100%;
-	height: auto;
-	display: block;
-	margin: 20px 0;
+	@apply mx-auto w-full block m-4;
 }
 
 .article code {
