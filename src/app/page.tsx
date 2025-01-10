@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import {
 	GitHubLogoIcon,
@@ -29,8 +30,8 @@ export default function Home() {
 	];
 
 	return (
-		<div className="max-w-md md:max-w-5xl h-[100%] flex-grow">
-			<div className="font-sans text-2xl md:text-4xl text-center font-medium text-balance flex flex-col items-center gap-4 md:mt-[20vh] mt-[10vh]">
+		<div className="max-w-md md:max-w-5xl h-[100%] flex-grow flex flex-col gap-16 pt-20 items-center">
+			<div className="font-sans text-2xl md:text-4xl text-center font-medium text-balance flex flex-col items-center gap-4">
 				<p>
 					Hey, I&apos;m Shey Laplanche! I am a full-stack developer
 					that loves making random software and projects, but have
@@ -60,6 +61,30 @@ export default function Home() {
 					where I&apos;ll post photo&apos;s, projects and more content
 					about what I do.
 				</p>
+			</div>
+
+			<span className="h-0.5 rounded-full w-full max-w-xs bg-black/10" />
+
+			<div className="flex flex-col items-center gap-4 p-8 rounded-xl max-w-xl bg-white/40 mx-4">
+				<p className="text-2xl text-center font-medium text-balance">
+					Check out my latest project - Backboard.
+				</p>
+				<p className="text-center">
+					An NBA Statistics Dashboard with a continually expanding set
+					of tools for Fantasy NBA and League analysis.
+				</p>
+				<Link
+					className="mt-4 px-4 py-1 flex items-center gap-2 rounded-lg border bg-white hover:bg-gray-100 hover:shadow transition-all duration-300"
+					href={"https://backboard-sepia.vercel.app"}
+				>
+					<Image
+						src={"/images/backboard-logo.svg"}
+						alt={"Backboard"}
+						width={32}
+						height={32}
+					/>
+					<p className="font-medium">Visit Backboard</p>
+				</Link>
 			</div>
 
 			<div className="flex flex-col items-center justify-center gap-8 w-full mt-24 md:flex-row md:gap-16">
