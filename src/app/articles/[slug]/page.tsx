@@ -1,4 +1,5 @@
 "use client";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { differenceInCalendarDays, format } from "date-fns";
 import getArticles, { articleTypes } from "@/lib/articles";
