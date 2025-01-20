@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Navigator({ className }: { className?: string }) {
 	return (
@@ -15,22 +17,16 @@ export default function Navigator({ className }: { className?: string }) {
 						>
 							0xshey
 						</Link>
-
-						{/* Articles Link */}
-						<Link
-							href="/articles"
-							className="text-sm hover:underline underline-offset-2"
-						>
-							Articles
-						</Link>
 					</div>
 					<div className="flex gap-8 items-center px-5 py-2 min-h-12">
 						<Link
-							href="https://read.cv/0xshey"
+							// href="https://read.cv/0xshey"
+							href="/resume"
 							className="text-sm hover:underline underline-offset-2"
 						>
 							CV
 						</Link>
+						<ThemeToggle />
 					</div>
 				</div>
 			</div>
