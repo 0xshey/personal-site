@@ -1,3 +1,5 @@
+import { InfoCircledIcon } from "@radix-ui/react-icons";
+
 import ResumeHeader from "@/components/resume/resume-header";
 import ResumeBlock from "@/components/resume/resume-block";
 import ResumeProject from "@/components/resume/resume-project";
@@ -5,7 +7,7 @@ import ResumeEducation from "@/components/resume/resume-education";
 
 export default function ResumePage() {
 	return (
-		<div className="flex flex-col items-center gap-16 w-full max-w-xl mt-16">
+		<div className="flex flex-col items-center gap-16 w-full max-w-xl mt-8">
 			<ResumeHeader
 				profileImage="/images/profile.jpg"
 				name="Shey Laplanche"
@@ -132,6 +134,11 @@ export default function ResumePage() {
 					location="Bentley, Western Australia"
 				/>
 			</ResumeBlock>
+			<p className="w-fit text-center text-xs text-muted-foreground/80 flex items-center gap-2 leading-none">
+				<InfoCircledIcon />
+				With read.cv shutting down soon &#40;RIP&#41;, I have migrated
+				my resume here!
+			</p>
 		</div>
 	);
 }
