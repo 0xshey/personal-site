@@ -84,19 +84,19 @@ export default function Home() {
 				</div>
 			</div>
 
-			<span className="h-0.5 rounded-full w-full max-w-xs bg-black/10" />
+			<span className="h-0.5 rounded-full w-full max-w-xs bg-muted-foreground" />
 
-			<div className="flex flex-col items-center justify-center gap-8 w-full mt-16 md:flex-row md:gap-16">
+			<div className="flex flex-col items-center justify-center gap-8 w-full mt-12 md:flex-row md:gap-16">
 				{
 					// Contact
 					contactItems.map((item) => (
 						<Link
 							key={item.label}
 							href={item.href}
-							className="flex items-center gap-1 text-gray-900/60 text-md group"
+							className="flex items-center gap-2 text-foreground text-md group"
 						>
-							<item.icon className="h-4 w-4" />/
-							<p className="font-mono group-hover:underline underline-offset-4">
+							<item.icon className="h-4 w-4" />
+							<p className="font-mono text-sm group-hover:underline underline-offset-4 leading-none">
 								{item.user}
 							</p>
 						</Link>
