@@ -5,7 +5,13 @@ import ResumeEducation from "@/components/resume/resume-education";
 
 export default function ResumePage() {
 	return (
-		<div className="flex flex-col items-center gap-16 w-full max-w-xl">
+		<div className="flex flex-col items-center gap-16 w-full max-w-xl mt-16">
+			<ResumeHeader
+				profileImage="/images/profile.jpg"
+				name="Shey Laplanche"
+				subtext="Full Stack Developer"
+				location="San Francisco, CA"
+			/>
 			<ResumeBlock title="About">
 				<div className="px-2 flex flex-col items-start gap-4 w-full">
 					<p>

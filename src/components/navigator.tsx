@@ -24,7 +24,7 @@ export default function Navigator({ className }: { className?: string }) {
 							href="/resume"
 							className="text-sm hover:underline underline-offset-2"
 						>
-							CV
+							Resume
 						</Link>
 						<ThemeToggle />
 					</div>
