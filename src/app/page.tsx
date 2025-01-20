@@ -49,25 +49,33 @@ export default function Home() {
 						playing chess or exploring my new home in the Bay Area.
 					</p>
 				</div>
-				<div className="col-span-3 xl:col-span-2 rounded-xl bg-white/40 w-full flex flex-col items-start justify-end gap-4 aspect-[1.2] relative overflow-hidden max-w-xl xl:max-w-none border shadow-sm mx-auto">
+				<div className="col-span-3 xl:col-span-2 rounded-xl w-full flex flex-col items-start justify-end gap-4 aspect-[1.2] relative overflow-hidden max-w-xl xl:max-w-none border dark:border-muted shadow-sm mx-auto">
 					<Image
 						src="/images/projects/backboard/players-page.png"
 						alt="Shey Laplanche"
 						width={1200}
 						height={1366}
-						className="absolute inset-0 object-cover w-full -z-10"
+						className="absolute inset-0 object-cover h-full w-full -z-10"
 					/>
+					<Image
+						src="/images/backboard-logo.svg"
+						alt="Shey Laplanche"
+						width={1200}
+						height={1366}
+						className="absolute inset-0 object-cover -z-10 opacity-20"
+					/>
+
 					<div className="relative bg-gradient-to-t from-background to-transparent pt-32 sm:pt-48 lg:pt-64 w-full h-full flex flex-col items-start justify-end gap-2 p-8">
 						<Link
 							href={"https://backboard-sepia.vercel.app"}
 							className="flex items-center gap-1"
 						>
-							<p className="text-2xl font-medium hover:underline underline-offset-2">
+							<p className="text-2xl font-medium hover:underline underline-offset-4 ">
 								Check out my latest project - Backboard{" "}
 								<ArrowTopRightIcon className="h-5 w-5 inline-block mb-0.5" />
 							</p>
 						</Link>
-						<p className="max-w-xl text-lg">
+						<p className="max-w-xl text-lg text-muted-foreground">
 							An NBA Statistics Dashboard with a continually
 							expanding set of tools for Fantasy NBA and League
 							analysis.
