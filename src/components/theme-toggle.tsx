@@ -18,7 +18,7 @@ export function ThemeToggle() {
 	return (
 		<button
 			onClick={toggleTheme}
-			className="rounded h-8 w-8 relative flex place-items-center justify-center"
+			className="h-8 w-8 relative flex place-items-center justify-center rounded-full transition-color duration-300 hover:bg-accent/50"
 		>
 			<SunIcon className="h-[1rem] w-[1rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
 			<MoonIcon className="absolute h-[1rem] w-[1rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />

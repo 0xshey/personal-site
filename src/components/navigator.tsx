@@ -2,33 +2,34 @@
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-export default function Navigator({ className }: { className?: string }) {
+type NavLink = {
+	label: string;
+	href: string;
+};
+
+export default function Navigator({
+	links,
+	className,
+}: {
+	links: NavLink[];
+	className?: string;
+}) {
 	return (
 		<nav
-			className={`w-full max-w-full flex flex-col items-center ${className}`}
+			className={`w-full px-8 flex flex-col items-center pt-4 sticky top-0 z-50  ${className}`}
 		>
-			<div className="w-full flex justify-center relative">
-				<div className="flex justify-between items-center w-full px-4 py-2 max-w-xl mt-8 mb-2 relative">
-					<div className="w-full flex gap-8 items-center px-5 py-2 min-h-12">
-						{/* Home Link */}
-						<Link
-							className="font-mono font-medium text-md tracking-tighter"
-							href="/"
-						>
-							0xshey
-						</Link>
-					</div>
-					<div className="flex gap-8 items-center px-5 py-2 min-h-12">
-						<Link
-							// href="https://read.cv/0xshey"
-							href="/resume"
-							className="text-sm hover:underline underline-offset-2"
-						>
-							Resume
-						</Link>
-						<ThemeToggle />
-					</div>
-				</div>
+			<div className="max-w-full p-2 gap-2 rounded-full flex justify-center relative bg-foreground text-background">
+				{links.map((link) => (
+					<Link
+						key={link.href}
+						href={link.href}
+						className="leading-none px-3 py-2 rounded-full transition-color duration-300 hover:bg-accent/50"
+					>
+						{link.label}
+					</Link>
+				))}
+
+				<ThemeToggle />
 			</div>
 		</nav>
 	);
