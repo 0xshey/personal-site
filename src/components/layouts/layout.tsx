@@ -5,7 +5,11 @@ import MetaProvider from "@/components/providers/meta-provider";
 import ThemeProvider from "@/components/providers/theme-provider";
 import BackgroundProvider from "@/components/providers/background-provider";
 
+import Navigator, { NavigatorProps } from "@/components/navigator";
+
+// import Navigator from "../navigator";
 import Footer from "@/components/footer";
+
 type LayoutProps = {
 	children: React.ReactNode;
 	metadata?: React.ComponentProps<typeof MetaProvider>;
@@ -24,8 +28,8 @@ export default function Layout({ children }: LayoutProps) {
 						disableTransitionOnChange
 					>
 						<BackgroundProvider>
-							<div className="h-[100%]">
-								<main className="w-full min-h-dvh flex flex-col items-center">
+							<div>
+								<main className="w-full min-h-screen overflow-x-hidden flex flex-col items-center">
 									{children}
 								</main>
 								<Footer />

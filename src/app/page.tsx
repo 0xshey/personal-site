@@ -39,14 +39,57 @@ export default function Home() {
 	];
 
 	return (
-		<div className="w-[100vw] h-[100vh]">
+		<div className="w-full flex flex-col min-h-screen relative scroll-smooth ease-linear">
 			<Navigator links={links} />
-
-			<div className="p-2 h-full flex flex-col justify-center">
+			<div
+				id="hello"
+				className="flex-grow pl-10 py-4 min-h-screen flex flex-col justify-end"
+			>
 				<p className="text-4xl pl-4">Hello, World! I am, </p>
-				<h1 className="text-[18rem] tracking-tighter">Shey</h1>
-				<p className="text-4xl pl-4 text-muted-foreground">
-					Full-stack software developer based in San Francisco, CA
+				<h1 className="text-[16rem] tracking-tighter leading-none whitespace-nowrap">
+					Shey
+				</h1>
+			</div>
+
+			<div
+				id="work"
+				className="flex-grow pl-10 py-4 h-full min-h-[100vh] bg-red-200 flex flex-col justify-end"
+			>
+				<h1 className="text-4xl font-medium">Work</h1>
+				<p>
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+					Atque sequi obcaecati recusandae deleniti non blanditiis,
+					enim repellendus dolor voluptatum molestiae perspiciatis
+					tempora vel eligendi odio inventore? Quos nesciunt tenetur
+					laborum?
+				</p>
+			</div>
+
+			<div
+				id="life"
+				className="flex-grow pl-10 py-4 h-full min-h-[100vh] bg-blue-200 flex flex-col justify-end"
+			>
+				<h1 className="text-4xl font-medium">Life</h1>
+				<p>
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+					Atque sequi obcaecati recusandae deleniti non blanditiis,
+					enim repellendus dolor voluptatum molestiae perspiciatis
+					tempora vel eligendi odio inventore? Quos nesciunt tenetur
+					laborum?
+				</p>
+			</div>
+
+			<div
+				id="connect"
+				className="flex-grow pl-10 py-4 h-full min-h-[100vh] bg-yellow-200 flex flex-col justify-end"
+			>
+				<h1 className="text-4xl font-medium">Connect</h1>
+				<p>
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+					Atque sequi obcaecati recusandae deleniti non blanditiis,
+					enim repellendus dolor voluptatum molestiae perspiciatis
+					tempora vel eligendi odio inventore? Quos nesciunt tenetur
+					laborum?
 				</p>
 			</div>
 		</div>
