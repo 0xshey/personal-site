@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-
+import { smoothScrollTo } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 type NavLink = {
@@ -12,44 +12,14 @@ type NavLink = {
 export type NavigatorProps = {
 	links: NavLink[];
 	className?: string;
+	position?: "top" | "bottom";
 };
-
-function smoothScrollTo(element: HTMLElement): void {
-	const start: number = window.scrollY;
-	const end: number = element.offsetTop;
-	const duration: number = 1500; // Duration of the scroll in milliseconds
-
-	// Easing function type
-	const easing = (t: number): number => {
-		return t < 0.5
-			? 16 * Math.pow(t, 5) // ease in
-			: 1 - Math.pow(-2 * t + 2, 5) / 2; // ease out
-	};
-
-	let startTime: number | undefined;
-
-	function step(timestamp: number): void {
-		if (!startTime) startTime = timestamp;
-		const progress: number = (timestamp - startTime) / duration;
-		const easedProgress: number = easing(progress);
-
-		window.scrollTo(0, start + (end - start) * easedProgress);
-
-		if (progress < 1) {
-			requestAnimationFrame(step);
-		}
-	}
-
-	requestAnimationFrame(step);
-}
 
 export default function Navigator({
 	links,
 	className,
-}: {
-	links: NavLink[];
-	className?: string;
-}) {
+	position = "top",
+}: NavigatorProps) {
 	const [activeSection, setActiveSection] = useState<string>("");
 	const navRef = useRef<HTMLDivElement | null>(null);
 
@@ -78,11 +48,35 @@ export default function Navigator({
 
 	return (
 		<nav
-			className={`w-full px-8 flex flex-col items-center pt-4 fixed top-0 z-50 ${className}`}
+			className={`w-full px-8 flex flex-col items-center fixed z-50 ${className} ${
+				position == "bottom"
+					? "bottom-0 pb-safe"
+					: position == "top"
+					? "top-0"
+					: ""
+			}`}
 		>
+			{/* Backdrop blur gradient */}
+			<div
+				className={`w-full h-full absolute top-0 left-0 backdrop-blur-md ${
+					position == "bottom" ? "mask-to-b" : "mask-to-t"
+				}`}
+			/>
+			<div
+				className={`w-full h-full absolute top-0 left-0 backdrop-blur-md ${
+					position == "bottom" ? "mask-to-b" : "mask-to-t"
+				}`}
+			/>
+			<div
+				className={`w-full h-full absolute top-0 left-0 backdrop-blur-md ${
+					position == "bottom" ? "mask-to-b" : "mask-to-t"
+				}`}
+			/>
+
+			{/* Navigator */}
 			<div
 				ref={navRef}
-				className="max-w-full p-0.5 gap-2 rounded-full flex justify-center items-center relative bg-foreground text-background shadow-xl"
+				className={`max-w-full p-0.5 gap-2 rounded-full flex justify-center items-center relative bg-foreground text-background shadow-xl my-4 `}
 			>
 				{links.map((link) => (
 					<Link
@@ -99,7 +93,7 @@ export default function Navigator({
 								smoothScrollTo(section); // Use the custom smoothScrollTo function
 							}
 						}}
-						className={`text-lg px-3 py-1 rounded-full transition-color duration-300 text-muted-foreground border border-transparent ${
+						className={`text-lg font-semibold px-3 py-1 rounded-full transition-color duration-300 text-muted-foreground border border-transparent ${
 							activeSection === link.href.slice(1)
 								? "bg-orange-400/30 hover:bg-orange-400/40 text-orange-400"
 								: "bg-none hover:text-muted "

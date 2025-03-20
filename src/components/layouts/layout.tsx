@@ -23,18 +23,16 @@ export default function Layout({ children }: LayoutProps) {
 				<FontProvider>
 					<ThemeProvider
 						attribute="class"
-						defaultTheme="dark"
+						defaultTheme="light"
 						enableSystem
 						disableTransitionOnChange
 					>
-						<BackgroundProvider>
-							<div>
-								<main className="w-full min-h-screen overflow-x-hidden flex flex-col items-center">
-									{children}
-								</main>
-								<Footer />
-							</div>
-						</BackgroundProvider>
+						<div>
+							<main className="w-full min-h-screen overflow-x-hidden flex flex-col items-center">
+								{children}
+							</main>
+							<Footer />
+						</div>
 					</ThemeProvider>
 				</FontProvider>
 			</body>
