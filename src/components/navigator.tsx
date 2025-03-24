@@ -33,7 +33,7 @@ export default function Navigator({
 				});
 			},
 			{
-				threshold: 0.3, // Adjust sensitivity for intersection detection
+				threshold: 0.5, // Adjust sensitivity for intersection detection
 			}
 		);
 

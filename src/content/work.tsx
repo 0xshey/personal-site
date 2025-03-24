@@ -16,7 +16,7 @@ export default function WorkSection({
 			id={id}
 			className={`flex-grow p-4 md:px-10 flex flex-col gap-8 justify-start pt-24 ${className}`}
 		>
-			<h1 className="text-5xl font-medium pl-2 w-fit mx-auto my-8">
+			<h1 className="text-5xl font-medium pl-2 w-fit mx-auto my-4">
 				My latest work
 			</h1>
 

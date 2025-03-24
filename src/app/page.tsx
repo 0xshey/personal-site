@@ -21,6 +21,7 @@ export default function Home() {
 		{ label: "Connect", href: "#connect" },
 	];
 
+	// Update position on page
 	useEffect(() => {
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -31,7 +32,7 @@ export default function Home() {
 				});
 			},
 			{
-				threshold: 0.3, // Adjust sensitivity for intersection detection
+				threshold: 0.5, // Adjust sensitivity for intersection detection
 			}
 		);
 
@@ -45,14 +46,14 @@ export default function Home() {
 	}, [links]);
 
 	return (
-		<BackgroundProvider>
+		<div>
 			<div className="w-full flex flex-col gap-40 min-h-screen relative scroll-smooth">
 				<Navigator links={links} position="top" />
 				<LandingSection id="hello" className="min-h-screen" />
 				<WorkSection id="work" className="min-h-screen" />
 				<LifeSection id="life" className="min-h-screen" />
-				<ConnectSection id="connect" className="min-h-screen" />
+				<ConnectSection id="connect" />
 			</div>
-		</BackgroundProvider>
+		</div>
 	);
 }
