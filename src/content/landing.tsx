@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowTopRightIcon } from "@radix-ui/react-icons";
+import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function LandingSection({
 	id,
@@ -9,32 +12,44 @@ export default function LandingSection({
 	className?: string;
 }) {
 	return (
-		<div
+		<section
 			id={id}
-			className={`flex-grow pl-4 md:pl-10 py-4 flex flex-col gap-16 justify-center md:justify-end ${className}`}
+			className={`flex-grow min-h-screen px-8 md:px-20 py-24 flex flex-col justify-center ${className}`}
 		>
-			{/* Landing Content */}
-			<p className="text-2xl sm:text-4xl pl-4">Hello, World! I am, </p>
-			<h1 className="text-[12rem] sm:text-[24rem] tracking-tighter leading-none whitespace-nowrap font-serif">
-				Shey
-			</h1>
-			<p className="text-muted-foreground text-2xl">
-				I am a full-stack developer based in San Francisco, CA. I am
-				currently building{" "}
-				<Link
-					href="https://backboard-sepia.vercel.app"
-					className="font-medium hover:underline inline-block"
+			<div className="max-w-4xl space-y-8">
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.5 }}
 				>
-					<div className="flex items-center">
-						<p>Backboard</p>
-						<ArrowTopRightIcon
-							height={20}
-							width={20}
-							className="mt-1"
-						/>
-					</div>
-				</Link>
-			</p>
-		</div>
+					<p className="text-xl md:text-2xl text-muted-foreground font-medium mb-4">
+						Hello, World! I am
+					</p>
+					<h1 className="text-8xl md:text-[10rem] font-bold tracking-tighter leading-none text-foreground -ml-1">
+						Shey
+					</h1>
+				</motion.div>
+
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.5, delay: 0.2 }}
+					className="max-w-2xl"
+				>
+					<p className="text-2xl md:text-4xl text-muted-foreground leading-snug">
+						A full-stack developer based in San Francisco, CA. Currently building{" "}
+						<Link
+							href="https://backboard-sepia.vercel.app"
+							className="text-foreground hover:text-primary transition-colors inline-flex items-center gap-1 border-b border-border hover:border-primary"
+						>
+							Backboard
+							<ArrowUpRight className="w-6 h-6" />
+						</Link>
+					</p>
+				</motion.div>
+			</div>
+		</section>
 	);
 }

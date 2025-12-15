@@ -1,7 +1,6 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
 
-import BackgroundProvider from "@/components/providers/background-provider";
 import Navigator from "@/components/navigator";
 import {
 	LandingSection,
@@ -47,11 +46,11 @@ export default function Home() {
 
 	return (
 		<div>
-			<div className="w-full flex flex-col gap-40 min-h-screen relative scroll-smooth">
-				<Navigator links={links} position="top" />
+			<div className="w-full flex flex-col gap-0 min-h-screen relative scroll-smooth">
+				<Navigator links={links} />
 				<LandingSection id="hello" className="min-h-screen" />
-				<WorkSection id="work" className="min-h-screen" />
-				<LifeSection id="life" className="min-h-screen" />
+				<WorkSection id="work" />
+				<LifeSection id="life" />
 				<ConnectSection id="connect" />
 			</div>
 		</div>

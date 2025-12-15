@@ -8,7 +8,6 @@ import BackgroundProvider from "@/components/providers/background-provider";
 import Navigator, { NavigatorProps } from "@/components/navigator";
 
 // import Navigator from "../navigator";
-import Footer from "@/components/footer";
 
 type LayoutProps = {
 	children: React.ReactNode;
@@ -31,7 +30,6 @@ export default function Layout({ children }: LayoutProps) {
 							<main className="w-full min-h-screen overflow-x-hidden flex flex-col items-center">
 								{children}
 							</main>
-							<Footer />
 						</div>
 					</ThemeProvider>
 				</FontProvider>

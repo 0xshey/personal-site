@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/card";
 
 export default function LifeSection({
@@ -8,39 +11,56 @@ export default function LifeSection({
 	className?: string;
 }) {
 	return (
-		<div
+		<section
 			id={id}
-			className={`flex-grow pl-4 md:pl-10 py-4 flex flex-col gap-8 justify-center md:justify-end ${className}`}
+			className={`flex-grow min-h-0 px-4 md:px-20 py-16 md:py-24 flex flex-col justify-center ${className}`}
 		>
-			<h1 className="text-4xl font-medium mx-auto">How I got here</h1>
-			<Card>
-				<CardContent>
-					<div className="flex flex-col gap-4">
-						<p className="font-medium text-xl">
-							Born and raised in a small Western Australian town,
-							far away from the rest of the world in a low-tech
-							household, my curiosity of technology and travel has
-							had a strong impact on my life
-						</p>
+			<motion.h2 
+				initial={{ opacity: 0, y: 20 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true }}
+				className="text-4xl md:text-6xl font-bold mb-12"
+			>
+				Background
+			</motion.h2>
 
-						<p className="font-medium text-xl">
-							I spent much of my childhood sketching floorplans,
-							products and schematics all over spare graphing
-							paper from my dads construction drawings. When I was
-							able to afford a computer for my final years of
-							school, I discovered the unlimited potential of
-							creativity possible from a computer.
-						</p>
+			<div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					className="md:col-span-8"
+				>
+					<Card className="border-none shadow-none bg-transparent">
+						<CardContent className="p-0">
+							<div className="flex flex-col gap-8 text-xl md:text-2xl leading-relaxed text-muted-foreground">
+								<p>
+									Born and raised in a small Western Australian town,
+									far away from the rest of the world in a low-tech
+									household, my curiosity of technology and travel has
+									had a strong impact on my life.
+								</p>
 
-						<p className="font-medium text-xl">
-							In late 2024, after graduating from University with
-							a Computer Science degree, I took an opportunity to
-							move from Perth to California, where I have since
-							been working and exploring.
-						</p>
-					</div>
-				</CardContent>
-			</Card>
-		</div>
+								<p>
+									I spent much of my childhood sketching floorplans,
+									products and schematics all over spare graphing
+									paper from my dad's construction drawings. When I was
+									able to afford a computer for my final years of
+									school, I discovered the unlimited potential of
+									creativity possible from a computer.
+								</p>
+
+								<p className="text-foreground font-medium">
+									In late 2024, after graduating from University with
+									a Computer Science degree, I took an opportunity to
+									move from Perth to California, where I have since
+									been working and exploring.
+								</p>
+							</div>
+						</CardContent>
+					</Card>
+				</motion.div>
+			</div>
+		</section>
 	);
 }

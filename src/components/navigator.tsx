@@ -1,8 +1,10 @@
 "use client";
+
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { smoothScrollTo } from "@/lib/utils";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { cn, smoothScrollTo } from "@/lib/utils";
 
 type NavLink = {
 	label: string;
@@ -12,16 +14,10 @@ type NavLink = {
 export type NavigatorProps = {
 	links: NavLink[];
 	className?: string;
-	position?: "top" | "bottom";
 };
 
-export default function Navigator({
-	links,
-	className,
-	position = "top",
-}: NavigatorProps) {
+export default function Navigator({ links, className }: NavigatorProps) {
 	const [activeSection, setActiveSection] = useState<string>("");
-	const navRef = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -33,11 +29,10 @@ export default function Navigator({
 				});
 			},
 			{
-				threshold: 0.5, // Adjust sensitivity for intersection detection
+				threshold: 0.5,
 			}
 		);
 
-		// Observe each section using its ID
 		links.forEach((link) => {
 			const section = document.getElementById(link.href.slice(1));
 			if (section) observer.observe(section);
@@ -48,63 +43,52 @@ export default function Navigator({
 
 	return (
 		<nav
-			className={`w-full px-8 flex flex-col items-center fixed z-50 ${className} ${
-				position == "bottom"
-					? "bottom-0 pb-safe"
-					: position == "top"
-					? "top-0"
-					: ""
-			}`}
+			className={cn(
+				"fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center",
+				className
+			)}
 		>
-			{/* Backdrop blur gradient */}
-			<div
-				className={`w-full h-full absolute top-0 left-0 backdrop-blur-md ${
-					position == "bottom" ? "mask-to-b" : "mask-to-t"
-				}`}
-			/>
-			<div
-				className={`w-full h-full absolute top-0 left-0 backdrop-blur-md ${
-					position == "bottom" ? "mask-to-b" : "mask-to-t"
-				}`}
-			/>
-			<div
-				className={`w-full h-full absolute top-0 left-0 backdrop-blur-md ${
-					position == "bottom" ? "mask-to-b" : "mask-to-t"
-				}`}
-			/>
-
-			{/* Navigator */}
-			<div
-				ref={navRef}
-				className={`max-w-full p-0.5 gap-2 rounded-full flex justify-center items-center relative bg-foreground text-background shadow-xl my-4 `}
+			<motion.div
+				initial={{ y: -100, opacity: 0 }}
+				animate={{ y: 0, opacity: 1 }}
+				transition={{ type: "spring", stiffness: 260, damping: 20 }}
+				className="flex items-center gap-1 p-1 rounded-full bg-background/80 backdrop-blur-md border border-border shadow-sm ring-1 ring-black/5 dark:ring-white/10"
 			>
-				{links.map((link) => (
-					<Link
-						key={link.href}
-						href={link.href}
-						scroll={false}
-						data-link={link.href.slice(1)}
-						onClick={(e) => {
-							e.preventDefault();
-							const section = document.getElementById(
-								link.href.slice(1)
-							);
-							if (section) {
-								smoothScrollTo(section); // Use the custom smoothScrollTo function
-							}
-						}}
-						className={`text-lg font-semibold px-3 py-1 rounded-full transition-color duration-300 text-muted-foreground border border-transparent ${
-							activeSection === link.href.slice(1)
-								? "bg-orange-400/30 hover:bg-orange-400/40 text-orange-400"
-								: "bg-none hover:text-muted "
-						}`}
-					>
-						{link.label}
-					</Link>
-				))}
-
-				<ThemeToggle />
-			</div>
+				{links.map((link) => {
+					const isActive = activeSection === link.href.slice(1);
+					return (
+						<Link
+							key={link.href}
+							href={link.href}
+							scroll={false}
+							onClick={(e) => {
+								e.preventDefault();
+								const section = document.getElementById(link.href.slice(1));
+								if (section) {
+									smoothScrollTo(section);
+								}
+							}}
+							className={cn(
+								"relative px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200",
+								isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+							)}
+						>
+							{isActive && (
+								<motion.div
+									layoutId="active-nav-pill"
+									className="absolute inset-0 bg-secondary rounded-full"
+									transition={{ type: "spring", stiffness: 300, damping: 30 }}
+									style={{ zIndex: -1 }}
+								/>
+							)}
+							{link.label}
+						</Link>
+					);
+				})}
+				<div className="pl-2 pr-1 border-l border-border/50 ml-1">
+					<ThemeToggle />
+				</div>
+			</motion.div>
 		</nav>
 	);
 }

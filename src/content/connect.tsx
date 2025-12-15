@@ -1,7 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-
-import { ArrowTopRightIcon, ArrowRightIcon } from "@radix-ui/react-icons";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 export default function ConnectSection({
 	id,
@@ -13,62 +15,70 @@ export default function ConnectSection({
 	const contactItems = [
 		{
 			label: "GitHub",
-			user: "0xshey",
 			href: "https://github.com/0xshey",
-			imageSrc: "images/social/github.svg",
+			imageSrc: "/images/social/github.svg",
 		},
 		{
 			label: "Instagram",
-			user: "0xshey",
 			href: "https://www.instagram.com/0xshey",
-			imageSrc: "images/social/instagram.svg",
+			imageSrc: "/images/social/instagram.svg",
 		},
 	];
 
 	return (
-		<div
+		<section
 			id={id}
-			className={`flex-grow pl-4 md:pl-10 py-4 flex flex-col gap-8 justify-center md:justify-end ${className}`}
+			className={`flex-grow min-h-[60vh] px-4 md:px-20 py-16 md:py-24 flex flex-col justify-end ${className}`}
 		>
-			<h1 className="text-5xl font-medium mx-auto">Let's connect</h1>
-			<p className="text-xl font-medium">
-				Whether you are looking for a driven and goal driven developer
-				or just want to follow what I'm doing and working on, follow me
-				on Instagram and GitHub.
-			</p>
+			<motion.div
+				initial={{ opacity: 0, y: 20 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true }}
+				className="space-y-12 mb-20"
+			>
+				<h2 className="text-6xl md:text-9xl font-bold tracking-tighter">
+					Let's Connect
+				</h2>
+				
+				<div className="flex flex-col md:flex-row gap-12 md:items-start md:justify-between">
+					<p className="text-xl md:text-2xl text-muted-foreground max-w-xl">
+						Whether you are looking for a driven developer
+						or just want to follow what I'm working on, say hello.
+					</p>
 
-			<div className="flex flex-col items-center gap-6">
+					<div className="flex items-center gap-6">
+						{contactItems.map((item) => (
+							<Link
+								key={item.label}
+								href={item.href}
+								className="opacity-70 hover:opacity-100 transition-opacity"
+							>
+								<div className="relative w-12 h-12">
+									<Image
+										src={item.imageSrc}
+										alt={item.label}
+										fill
+										className="object-contain invert dark:invert-0"
+									/>
+								</div>
+							</Link>
+						))}
+					</div>
+				</div>
+
 				<Link
 					href="mailto:sheylaplanch@gmail.com"
-					className="flex items-center gap-3"
+					className="group inline-flex items-center gap-4 text-2xl md:text-4xl font-medium hover:text-muted-foreground transition-colors"
 				>
-					<p className="text-xl font-medium underline underline-offset-3">
-						Send me a message
-					</p>
-					<ArrowRightIcon className="h-6 w-6" />
+					<span>sheylaplanch@gmail.com</span>
+					<ArrowRight className="w-8 h-8 md:w-12 md:h-12 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
 				</Link>
-
-				<div className="h-0.5 bg-muted-foreground/20 w-1/3"></div>
-
-				<div className="flex gap-8 mx-auto">
-					{contactItems.map((item) => (
-						<Link
-							key={item.label}
-							href={item.href}
-							className="w-20"
-						>
-							<Image
-								src={item.imageSrc}
-								alt={item.label}
-								width={120}
-								height={120}
-							/>
-						</Link>
-					))}
-				</div>
+			</motion.div>
+			
+			<div className="border-t border-border pt-8 flex justify-between text-sm text-muted-foreground">
+				<p>© {new Date().getFullYear()} Shey</p>
+				<p>San Francisco, CA</p>
 			</div>
-
-			<div className="flex justify-between gap-4 mx-8"></div>
-		</div>
+		</section>
 	);
 }

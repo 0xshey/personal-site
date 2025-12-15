@@ -1,8 +1,8 @@
+"use client";
+
 import Image from "next/image";
-
-import { ArrowTopRightIcon } from "@radix-ui/react-icons";
-
-import { Card, CardHeader, CardImage, CardContent } from "@/components/card";
+import { motion } from "framer-motion";
+import { Card, CardHeader, CardImage } from "@/components/card";
 
 export default function WorkSection({
 	id,
@@ -12,40 +12,62 @@ export default function WorkSection({
 	className?: string;
 }) {
 	return (
-		<div
+		<section
 			id={id}
-			className={`flex-grow p-4 md:px-10 flex flex-col gap-8 justify-start pt-24 ${className}`}
+			className={`flex-grow min-h-0 px-4 md:px-20 py-16 md:py-24 flex flex-col justify-center ${className}`}
 		>
-			<h1 className="text-5xl font-medium pl-2 w-fit mx-auto my-4">
-				My latest work
-			</h1>
+			<motion.h2 
+				initial={{ opacity: 0, y: 20 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true }}
+				className="text-4xl md:text-6xl font-bold mb-12"
+			>
+				Latest Work
+			</motion.h2>
 
-			<Card>
-				<CardHeader
-					title="Backboard"
-					description="An NBA statistics hub for fantasy managers"
-					icon={
-						<Image
-							src="/images/projects/backboard/icon.svg"
-							alt="Backboard logo"
-							height={120}
-							width={120}
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ delay: 0.1 }}
+				>
+					<Card className="h-full hover:scale-[1.02] transition-transform duration-300">
+						<CardHeader
+							title="Backboard"
+							description="An NBA statistics hub for fantasy managers"
+							icon={
+								<div className="relative w-12 h-12 rounded-xl overflow-hidden shadow-sm">
+									<Image
+										src="/images/projects/backboard/icon.svg"
+										alt="Backboard logo"
+										fill
+										className="object-cover"
+									/>
+								</div>
+							}
 						/>
-					}
-				/>
-				<CardImage src="/images/projects/backboard/roster-page.png" />
-			</Card>
+						<CardImage src="/images/projects/backboard/roster-page.png" />
+					</Card>
+				</motion.div>
 
-			<div className="flex flex-col gap-2">
-				<p className="px-4 text-lg font-medium">
-					Data fetching, manipulation and visualisation are the
-					primary axes for most of my development pursuits.
-				</p>
-				<p className="px-4 text-lg font-medium text-muted-foreground">
-					Backboard utilises Python, NextJS, Supabase and Vercel to
-					bring this application to users.
-				</p>
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ delay: 0.2 }}
+					className="flex flex-col justify-center gap-6 p-4"
+				>
+					<p className="text-xl md:text-2xl font-medium leading-relaxed">
+						Data fetching, manipulation and visualisation are the
+						primary axes for most of my development pursuits.
+					</p>
+					<p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+						Backboard utilises Python, NextJS, Supabase and Vercel to
+						bring this application to users.
+					</p>
+				</motion.div>
 			</div>
-		</div>
+		</section>
 	);
 }
