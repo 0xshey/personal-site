@@ -37,13 +37,13 @@ export default function ConnectSection({
 				className="space-y-12 mb-20"
 			>
 				<h2 className="text-6xl md:text-9xl font-bold tracking-tighter">
-					Let's Connect
+					Let&apos;s Connect
 				</h2>
 				
 				<div className="flex flex-col md:flex-row gap-12 md:items-start md:justify-between">
 					<p className="text-xl md:text-2xl text-muted-foreground max-w-xl">
 						Whether you are looking for a driven developer
-						or just want to follow what I'm working on, say hello.
+						or just want to follow what I&apos;m working on, say hello.
 					</p>
 
 					<div className="flex items-center gap-6">

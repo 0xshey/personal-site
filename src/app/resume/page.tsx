@@ -38,7 +38,7 @@ export default function ResumePage() {
 					<ResumeBlock title="About">
 						<div className="flex flex-col gap-4 text-muted-foreground leading-relaxed">
 							<p>
-								I'm an Australian full-stack developer living out
+								I&apos;m an Australian full-stack developer living out
 								in California, developing tangible applications and
 								tools around data. I am very experienced in data
 								manipulation and API development using Python,

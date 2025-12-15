@@ -3,9 +3,7 @@ import "@/styles/globals.css";
 import FontProvider from "@/components/providers/font-provider";
 import MetaProvider from "@/components/providers/meta-provider";
 import ThemeProvider from "@/components/providers/theme-provider";
-import BackgroundProvider from "@/components/providers/background-provider";
 
-import Navigator, { NavigatorProps } from "@/components/navigator";
 
 // import Navigator from "../navigator";
 

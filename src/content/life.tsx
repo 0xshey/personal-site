@@ -44,7 +44,7 @@ export default function LifeSection({
 								<p>
 									I spent much of my childhood sketching floorplans,
 									products and schematics all over spare graphing
-									paper from my dad's construction drawings. When I was
+									paper from my dad&apos;s construction drawings. When I was
 									able to afford a computer for my final years of
 									school, I discovered the unlimited potential of
 									creativity possible from a computer.
