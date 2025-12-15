@@ -19,14 +19,14 @@ const links = [
 
 export default function Home() {
 	return (
-		<div>
+		<div className="w-full">
 			<HiringToast />
-			<div className="w-full flex flex-col gap-0 min-h-screen relative scroll-smooth">
+			<div className="w-full grid grid-cols-4 gap-0 min-h-screen relative scroll-smooth">
 				<Navigator links={links} />
-				<LandingSection id="hello" className="min-h-screen" />
-				<WorkSection id="work" />
-				<LifeSection id="life" />
-				<ConnectSection id="connect" />
+				<LandingSection />
+				<WorkSection />
+				<LifeSection />
+				<ConnectSection />
 			</div>
 		</div>
 	);
