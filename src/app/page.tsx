@@ -2,6 +2,7 @@
 import { useRef, useState, useEffect } from "react";
 
 import Navigator from "@/components/navigator";
+import HiringToast from "@/components/hiring-toast";
 import {
 	LandingSection,
 	WorkSection,
@@ -46,6 +47,7 @@ export default function Home() {
 
 	return (
 		<div>
+			<HiringToast />
 			<div className="w-full flex flex-col gap-0 min-h-screen relative scroll-smooth">
 				<Navigator links={links} />
 				<LandingSection id="hello" className="min-h-screen" />
