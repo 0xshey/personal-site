@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { cn, smoothScrollTo } from "@/lib/utils";
@@ -18,6 +19,7 @@ export type NavigatorProps = {
 };
 
 export default function Navigator({ links, className }: NavigatorProps) {
+	const pathname = usePathname();
 	const [activeSection, setActiveSection] = useState<string>("");
 	const [hoveredPath, setHoveredPath] = useState<string | null>(null);
 
@@ -61,7 +63,7 @@ export default function Navigator({ links, className }: NavigatorProps) {
 			>
 				<div>
 					{links.map((link) => {
-						const isActive = activeSection === link.href.slice(1);
+						const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href) || activeSection === link.href.slice(1);
 						return (
 							<Link
 								key={link.href}
