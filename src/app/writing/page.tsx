@@ -3,14 +3,6 @@ import Link from "next/link";
 import { format } from "date-fns";
 import { motion } from "framer-motion";
 
-const links = [
-	{ label: "Shey", href: "/" },
-	{ label: "Work", href: "/work" },
-	{ label: "Writing", href: "/writing" },
-	{ label: "Life", href: "/life" },
-	{ label: "Connect", href: "/connect" },
-];
-
 export default function WritingPage() {
     const posts = getAllPosts(['title', 'date', 'slug', 'excerpt']);
 

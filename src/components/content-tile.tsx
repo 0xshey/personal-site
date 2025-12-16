@@ -13,7 +13,7 @@ interface ContentTileProps {
 export function ContentTile({ children, className, title, image, imageAlt="", imageFill=false }: ContentTileProps) {
 	return (
 		<div className={cn(
-			"rounded-lg w-full aspect-square bg-muted/80 hover:bg-muted cursor-default overflow-hidden duration-200 transition-colors",
+			"rounded-lg w-full aspect-square bg-muted/80 hover:bg-muted cursor-default overflow-hidden duration-200 transition-colors border border-border",
 			"",
 			className
 		)}>

@@ -50,7 +50,7 @@ export default function Navigator({ links, className }: NavigatorProps) {
 	return (
 		<nav
 			className={cn(
-				"pointer-events-none sticky top-0 isolate z-10 flex justify-center py-4 px-1 md:justify-between",
+				"pointer-events-none sticky top-0 isolate z-20 flex justify-center py-4 px-1 md:justify-between",
 				className
 			)}
 		>
@@ -58,7 +58,7 @@ export default function Navigator({ links, className }: NavigatorProps) {
 				initial={{ y: -100, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
 				transition={{ type: "spring", stiffness: 260, damping: 20 }}
-				className="pointer-events-auto relative flex items-center gap-1 p-1 rounded-lg bg-background/80 backdrop-blur-md border border-border shadow-md h-fit"
+				className="pointer-events-auto relative flex items-center gap-1 p-1 rounded-lg bg-background/80 backdrop-blur-sm border border-border shadow-md h-fit"
 				onMouseLeave={() => setHoveredPath(null)}
 			>
 				{links.map((link) => {
