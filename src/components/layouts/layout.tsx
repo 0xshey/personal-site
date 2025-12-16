@@ -33,7 +33,7 @@ export default function Layout({ children }: LayoutProps) {
 						disableTransitionOnChange
 					>
 						<div>
-							<main className="w-full min-h-screen overflow-x-hidden flex flex-col items-center">
+							<main className="w-full min-h-screen flex flex-col items-center">
                                 <div className="mx-auto w-full max-w-screen-sm px-8 font-sans md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-2xl">
                                     <Navigator links={links} />
                                     {children}
