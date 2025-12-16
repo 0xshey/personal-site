@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { cn, smoothScrollTo } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
 
 type NavLink = {
 	label: string;
@@ -18,6 +19,7 @@ export type NavigatorProps = {
 
 export default function Navigator({ links, className }: NavigatorProps) {
 	const [activeSection, setActiveSection] = useState<string>("");
+	const [hoveredPath, setHoveredPath] = useState<string | null>(null);
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -34,8 +36,10 @@ export default function Navigator({ links, className }: NavigatorProps) {
 		);
 
 		links.forEach((link) => {
-			const section = document.getElementById(link.href.slice(1));
-			if (section) observer.observe(section);
+			if (link.href.startsWith("#")) {
+				const section = document.getElementById(link.href.slice(1));
+				if (section) observer.observe(section);
+			}
 		});
 
 		return () => observer.disconnect();
@@ -44,7 +48,7 @@ export default function Navigator({ links, className }: NavigatorProps) {
 	return (
 		<nav
 			className={cn(
-				"fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center",
+				"pointer-events-none sticky top-0 isolate z-10 flex justify-between py-4 px-1 md:justify-between",
 				className
 			)}
 		>
@@ -52,41 +56,70 @@ export default function Navigator({ links, className }: NavigatorProps) {
 				initial={{ y: -100, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
 				transition={{ type: "spring", stiffness: 260, damping: 20 }}
-				className="flex items-center gap-1 p-1 rounded-full bg-background/80 backdrop-blur-md border border-border shadow-sm ring-1 ring-black/5 dark:ring-white/10"
+				className="pointer-events-auto relative flex items-center gap-1 p-1.5 rounded-lg bg-background/80 backdrop-blur-md border border-border shadow-md"
+				onMouseLeave={() => setHoveredPath(null)}
 			>
-				{links.map((link) => {
-					const isActive = activeSection === link.href.slice(1);
-					return (
-						<Link
-							key={link.href}
-							href={link.href}
-							scroll={false}
-							onClick={(e) => {
-								e.preventDefault();
-								const section = document.getElementById(link.href.slice(1));
-								if (section) {
-									smoothScrollTo(section);
-								}
-							}}
-							className={cn(
-								"relative px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200",
-								isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-							)}
-						>
-							{isActive && (
-								<motion.div
-									layoutId="active-nav-pill"
-									className="absolute inset-0 bg-secondary rounded-full"
-									transition={{ type: "spring", stiffness: 300, damping: 30 }}
-									style={{ zIndex: -1 }}
-								/>
-							)}
-							{link.label}
-						</Link>
-					);
-				})}
-				<div className="pl-2 pr-1 border-l border-border/50 ml-1">
+				<div>
+					{links.map((link) => {
+						const isActive = activeSection === link.href.slice(1);
+						return (
+							<Link
+								key={link.href}
+								href={link.href}
+								scroll={false}
+								onClick={(e) => {
+									if (link.href.startsWith("#")) {
+										e.preventDefault();
+										const section = document.getElementById(link.href.slice(1));
+										if (section) {
+											smoothScrollTo(section);
+										}
+									}
+								}}
+								onMouseEnter={() => setHoveredPath(link.href)}
+								className={cn(
+									"relative px-3 py-1 rounded-sm text-sm transition-colors duration-200",
+									isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+								)}
+							>
+								{isActive && (
+									<motion.div
+										layoutId="active-nav-pill"
+										className="absolute inset-0 rounded-sm"
+										transition={{ type: "spring", stiffness: 300, damping: 30 }}
+										style={{ zIndex: -1 }}
+									/>
+								)}
+								{link.href === hoveredPath && (
+									<motion.div
+										layoutId="hover-nav-pill"
+										className="absolute inset-0 bg-muted rounded-sm"
+										transition={{ type: "spring", bounce: 0.2, duration: 0.3 }}
+										style={{ zIndex: -2 }}
+									/>
+								)}
+								<span className="relative z-10">{link.label}</span>
+							</Link>
+						);
+					})}
+				</div>
+			</motion.div>
+
+			<motion.div
+				initial={{ y: -100, opacity: 0 }}
+				animate={{ y: 0, opacity: 1 }}
+				transition={{ type: "spring", stiffness: 260, damping: 20 }}
+				className="flex items-center gap-1 px-1"
+			>
+				<div className="pointer-events-auto flex items-center gap-6">
+					<Link
+						href="/resume"
+						className="text-sm text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center gap-0.5"
+					>
+						CV
+					</Link>
 					<ThemeToggle />
+					
 				</div>
 			</motion.div>
 		</nav>

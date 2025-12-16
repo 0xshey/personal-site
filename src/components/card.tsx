@@ -13,7 +13,7 @@ export function Card({
 }) {
 	return (
 		<div
-			className={`relative w-full rounded-3xl border border-muted-foreground/10 bg-gradient-to-br from-background/60 via-background/40 to-background/60 backdrop-blur-xl overflow-hidden p-2 group transition-all duration-300 ${className} 
+			className={`relative w-full rounded-3xl border border-muted-foreground/10 bg-linear-to-br from-background/60 via-background/40 to-background/60 backdrop-blur-xl overflow-hidden p-2 group transition-all duration-300 ${className} 
 			${link && "cursor-pointer"}`}
 		>
 			<div className="relative flex flex-col justify-between h-full z-10">
@@ -53,8 +53,8 @@ export function CardHeader({ title, description, icon }: CardHeaderProps) {
 export function CardImage({ src }: CardImageProps) {
 	return (
 		<div className="aspect-2/1">
-			<div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5/6 -mb-10 shadow-muted-foreground/20 shadow-xs group-hover:shadow-xl border-1 border-foreground/10 overflow-hidden rounded-3xl rotate-5 group-hover:rotate-0 group-hover:-mb-10 transition-all duration-300">
-				<div className="w-full aspect-[3/2]">
+			<div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5/6 -mb-10 shadow-muted-foreground/20 shadow-xs group-hover:shadow-xl border border-foreground/10 overflow-hidden rounded-3xl rotate-5 group-hover:rotate-0 group-hover:-mb-10 transition-all duration-300">
+				<div className="w-full aspect-3/2">
 					<Image
 						src={src}
 						alt="card image"

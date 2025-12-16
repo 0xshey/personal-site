@@ -14,7 +14,7 @@ export default function LandingSection({
 	return (
 		<section
 			id={id}
-			className={`flex-grow min-h-screen px-8 md:px-20 py-24 flex flex-col justify-center ${className}`}
+			className={`grow min-h-screen px-8 md:px-20 py-24 flex flex-col justify-center ${className}`}
 		>
 			<div className="max-w-4xl space-y-8">
 				<motion.div

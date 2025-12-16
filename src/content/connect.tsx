@@ -28,7 +28,7 @@ export default function ConnectSection({
 	return (
 		<section
 			id={id}
-			className={`flex-grow min-h-[60vh] px-4 md:px-20 py-16 md:py-24 flex flex-col justify-end ${className}`}
+			className={`grow min-h-[60vh] px-4 md:px-20 py-16 md:py-24 flex flex-col justify-end ${className}`}
 		>
 			<motion.div
 				initial={{ opacity: 0, y: 20 }}

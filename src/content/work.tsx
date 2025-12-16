@@ -16,7 +16,7 @@ export default function WorkSection({
 	return (
 		<section
 			id={id}
-			className={`flex-grow min-h-0 px-4 md:px-20 py-16 md:py-24 flex flex-col justify-center ${className}`}
+			className={`grow min-h-0 px-4 md:px-20 py-16 md:py-24 flex flex-col justify-center ${className}`}
 		>
 			<motion.h2 
 				initial={{ opacity: 0, y: 20 }}
