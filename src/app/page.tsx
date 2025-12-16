@@ -19,6 +19,7 @@ export default function Home() {
 
 					<ContentTile 
 						className="relative"
+						title="Backboard"
 						image="/images/projects/backboard/roster-page.png"
 						imageFill
 					/>
