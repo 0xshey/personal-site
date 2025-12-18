@@ -16,7 +16,7 @@ const fontSans = Geist({
 	variable: '--font-sans'
 })
 
-const fontSerif = Geist({
+const fontSerif = Instrument_Serif({
 	weight: ['400'],
 	subsets: ['latin'],
 	variable: '--font-serif'
