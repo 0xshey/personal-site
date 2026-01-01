@@ -28,9 +28,9 @@ export default function ResumeHeader({
 					<p className="text-2xl mt-2">{name}</p>
 					<p className="text-muted-foreground">{subtext}</p>
 					{location && (
-						<div className="border w-fit pr-4 pl-1.5 py-0.5 my-1 rounded-full bg-muted flex items-center gap-2">
+						<div className="border border-muted-foreground font-mono w-fit pr-4 pl-1.5 py-0.5 my-1 rounded-full bg-muted flex items-center gap-2">
 							<GlobeIcon className="text-muted-foreground" />
-							<p className="text-muted-foreground text-sm">
+							<p className="text-muted-foreground text-xs">
 								{location}
 							</p>
 						</div>

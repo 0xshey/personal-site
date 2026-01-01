@@ -1,40 +1,84 @@
 "use client";
-
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 import { Tile } from "@/components/tile";
-import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export default function Home() {
-	return (
-		<div className="w-full mx-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-2xl flex flex-col items-center min-h-screen relative scroll-smooth pb-20">
-			<div className="w-full min-h-24 md:min-h-32" /> {/* Leading Content Buffer */}
+	const { resolvedTheme } = useTheme();
 
-			<div className="w-full max-w-7xl h-fit gap-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+	return (
+		<div
+			className={cn(
+				"w-full mx-auto flex flex-col items-center min-h-screen relative scroll-smooth pb-20",
+				"md:max-w-screen-md lg:max-w-screen-2xl"
+			)}
+		>
+			<div className={cn("w-full min-h-24", "md:min-h-32")} />{" "}
+			{/* Leading Content Buffer */}
+			<div
+				className={cn(
+					"w-full h-fit gap-2 flex flex-col md:px-8",
+					"sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+				)}
+			>
 				{/* 1. Intro Tile - Custom transparent tile */}
 				<div
-					className="col-span-1 md:col-span-2 row-span-2 aspect-[2/1] bg-transparent h-full w-full flex items-center"
+					className={cn(
+						"aspect-square bg-transparent h-full w-full flex items-center ",
+						"col-span-1 aspect-[1/1] row-span-2 sm:col-span-2 sm:aspect-[2/1]"
+					)}
 				>
-					<div className="text-3xl md:text-4xl font-semibold font-mono leading-tight">
-						Hey, I'm <em className="text-primary not-italic">Shey</em>. A full-stack developer based in San Francisco, CA. Currently building Backboard.
+					<div
+						className={cn(
+							"font-medium font-serif",
+							"text-4xl md:text-[2.8rem]"
+						)}
+					>
+						<p className="text-balance space-y-4 text-muted-foreground">
+							<p>Hey! I'm Shey 👋</p>
+							<p>
+								I'm Shey, a full-stack developer based in San
+								Francisco{" "}
+								{resolvedTheme == "dark" ? "🌉" : "🌁"}
+							</p>
+							<p>
+								When I'm not spending my time{" "}
+								<Link href="/work" className="text-foreground">
+									coding
+								</Link>
+								, I'm behind the bar, playing basketball or
+								exploring California
+							</p>
+							<p>
+								Check back here for any updates on my projects —
+								I'm currently working on{" "}
+								<Link
+									href="https://backboard-rankings.vercel.app"
+									className="text-foreground"
+								>
+									Backboard ⛹️‍♂️
+								</Link>
+							</p>
+						</p>
 					</div>
 				</div>
 
-
-
 				{/* 2. Project Tile */}
-				<Tile.Project 
-					className="aspect-[2/1] col-span-2"
-					href="/work"
+				<Tile.Project
+					className={cn("col-span-1 aspect-1/1")}
+					href="https://backboard-rankings.vercel.app"
 					section="Work"
 					label="Backboard"
 					tags={["Next.js", "Python", "Supabase"]}
-					image="/images/projects/backboard/roster-page.png"
+					image="/images/projects/backboard/1.png"
 				/>
 
 				{/* 3. Article Tile */}
 				<Tile.Article
 					section="Writing"
 					label="Hello World"
-					className="col-span-1 aspect-1/1"
+					className={cn("col-span-1 aspect-1/1")}
 					href="/writing/hello-world"
 					title="Hello World"
 					excerpt="This is my first post on the new site design. I designed this writing page to free myself from wordpress and other blog hosting sites. Using a markdown renderer in react allows me to style my posts and pages without the shackles of third party api's."
@@ -43,31 +87,41 @@ export default function Home() {
 				/>
 
 				{/* 5. Music Tile */}
-				{/* <Tile.Music 
-					className="col-span-1 aspect-square"
-					artist="Fred again.."
-					song="Delilah (pull me out of this)"
-					coverArt="/images/projects/backboard/players-page.png" // Placeholder - would replace with album art
-					spotifyUrl="https://open.spotify.com"
-					appleMusicUrl="https://music.apple.com"
-				/> */}
+				<Tile.Music
+					className={cn("col-span-1 aspect-square")}
+					artist="Creedence Clearwater Revival"
+					song="Green River"
+					coverArt="https://concord.com/wp-content/uploads/2014/12/CCR_GREENRIVER_cover_5x5_300_rgb_WEB.jpg" // Placeholder - would replace with album art
+					spotifyUrl="https://open.spotify.com/track/11DjZQEZ69EXLo77HVj6yW?si=f443cb8740cc4ac2"
+					appleMusicUrl="https://music.apple.com/us/song/green-river/1440952830"
+				/>
 
 				{/* 6. Photos Tile */}
-				{/* <Tile.Photos 
-					className="col-span-1 aspect-square"
+				<Tile.Photos
+					className={cn("col-span-1 aspect-square")}
+					section="Photos"
+					label="Little Lila"
 					images={[
-						"/images/projects/backboard/roster-page.png",
-						"/images/projects/backboard/players-page.png",
-						"/images/projects/backboard/roster-page.png"
+						"/images/photos/lila/1.jpeg",
+						"/images/photos/lila/2.jpeg",
+						"/images/photos/lila/3.jpeg",
+						"/images/photos/lila/4.jpeg",
+						"/images/photos/lila/5.jpeg",
+						"/images/photos/lila/6.jpeg",
 					]}
-					title="Recent Shots"
-				/> */}
+					title="Lila"
+					description="The spoiled kitty of the apartment."
+				/>
 
 				{/* 7. Snippet Tile (Markdown) */}
-					{/* <Tile.Snippet 
-					className="col-span-1 md:col-span-2 aspect-[2/1]"
+				<Tile.Snippet
+					className={cn("col-span-1 aspect-[2/1]", "md:col-span-2")}
+					section="Code"
+					label="Algorithms"
 					title="Quick Sort (Python)"
-					language="python"
+					description="A simple implementation of the Quick Sort algorithm in Python."
+					image="/images/projects/backboard/roster-page.png"
+					tags={["Python", "Algorithms", "Sorting"]}
 					content={`
 						\`\`\`python
 						def quicksort(arr):
@@ -80,7 +134,17 @@ export default function Home() {
 							return quicksort(left) + middle + quicksort(right)
 						\`\`\`
 					`}
-				/> */}
+				/>
+
+				{/* 8. External Link Tile */}
+				<Tile.ExternalLink
+					className={cn("col-span-1 aspect-square")}
+					title="Godly"
+					description="Currently my first call for website and UI inspiration. Also fun to just browse."
+					href="https://godly.website/"
+					imageStyle="cropped"
+					image="/images/external-links/godly.png"
+				/>
 			</div>
 		</div>
 	);
