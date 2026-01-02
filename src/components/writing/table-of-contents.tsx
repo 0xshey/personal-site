@@ -14,7 +14,7 @@ interface TableOfContentsProps {
 }
 
 export function TableOfContents({ headings }: TableOfContentsProps) {
-	const { activeId, setIsDimmed } = useWriting();
+	const { activeId, setActiveId, setIsDimmed } = useWriting();
 
 	const handleClick = (
 		e: React.MouseEvent<HTMLAnchorElement>,
@@ -22,6 +22,7 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
 	) => {
 		e.preventDefault();
 		setIsDimmed(true);
+		setActiveId(id);
 		const element = document.getElementById(id);
 		if (element) {
 			const viewportHeight = window.innerHeight;
@@ -40,24 +41,21 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
 	if (headings.length === 0) return null;
 
 	return (
-		<nav className="flex flex-col gap-3">
-			<p className="text-xs font-bold uppercase tracking-widest text-muted-foreground/50 mb-2">
-				In this article
-			</p>
+		<nav className="flex flex-col gap-3 mt-12">
 			<ul className="space-y-3">
 				{headings.map((heading) => (
 					<li
 						key={heading.id}
-						style={{ paddingLeft: `${(heading.level - 1) * 1}rem` }}
+						style={{ paddingLeft: `${(heading.level - 1) * 2}rem` }}
 					>
 						<a
 							href={`#${heading.id}`}
 							onClick={(e) => handleClick(e, heading.id)}
 							className={cn(
-								"text-sm transition-all duration-200 hover:text-foreground inline-block",
+								"text-sm transition-all duration-300 hover:text-foreground inline-block tracking-tight",
 								activeId === heading.id
-									? "text-foreground font-medium"
-									: "text-muted-foreground/60"
+									? "text-foreground font-semibold"
+									: "text-muted-foreground/80"
 							)}
 						>
 							{heading.text}

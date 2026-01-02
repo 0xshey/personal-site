@@ -58,7 +58,7 @@ export default async function Post({
 
 	return (
 		<WritingProvider>
-			<div className="w-full max-w-screen-xl mx-auto mt-12 relative px-4 md:px-8">
+			<div className="w-full max-w-screen-2xl mx-auto mt-12 relative px-4 md:px-8">
 				<Link
 					href="/writing"
 					className="inline-flex items-center gap-2 text-muted-foreground/50 hover:text-muted-foreground mb-8 text-sm group py-2"
@@ -69,11 +69,14 @@ export default async function Post({
 					</p>
 				</Link>
 
-				<div className="flex flex-col lg:flex-row gap-16">
+				<div className="flex flex-col lg:flex-row gap-16 lg:mx-20">
 					<ArticleWrapper headings={headings}>
 						<article className="mt-24 flex-1 min-w-0">
 							<header className="mt-12">
-								<time className="text-muted-foreground">
+								<h1 className="text-4xl md:text-7xl font-serif font-medium tracking-tight text-foreground mb-4">
+									{post.title}
+								</h1>
+								<time className="text-base text-muted-foreground/60 font-medium">
 									{format(
 										new Date(post.date),
 										"MMMM d, yyyy"
@@ -81,7 +84,7 @@ export default async function Post({
 								</time>
 							</header>
 
-							<div className="prose prose-neutral text-foreground/80 dark:prose-invert max-w-none mt-12">
+							<div className="prose prose-neutral dark:prose-invert max-w-2xl mt-16 pb-[50vh]">
 								<ReactMarkdown
 									remarkPlugins={[remarkGfm]}
 									rehypePlugins={[rehypeRaw]}
@@ -90,13 +93,13 @@ export default async function Post({
 											const text = String(children);
 											const id = slugger.slug(text);
 											return (
-												<h1
+												<h2
 													id={id}
-													className="text-8xl font-medium font-serif mt-12 mb-4 pb-2 text-foreground scroll-mt-[20vh]"
+													className="text-3xl font-medium tracking-tight mt-16 mb-6 text-foreground scroll-mt-[20vh]"
 													{...props}
 												>
 													{children}
-												</h1>
+												</h2>
 											);
 										},
 										h2: ({ node, children, ...props }) => {
@@ -105,7 +108,7 @@ export default async function Post({
 											return (
 												<h2
 													id={id}
-													className="text-2xl font-medium mt-8 mb-4 text-foreground scroll-mt-[20vh]"
+													className="text-2xl font-medium tracking-tight mt-10 mb-2 text-foreground scroll-mt-[20vh]"
 													{...props}
 												>
 													{children}
@@ -118,7 +121,7 @@ export default async function Post({
 											return (
 												<h3
 													id={id}
-													className="text-xl font-bold mt-6 mb-3 text-foreground scroll-mt-[20vh]"
+													className="text-xl font-medium tracking-tight mt-6 mb-1 text-foreground scroll-mt-[20vh]"
 													{...props}
 												>
 													{children}
@@ -131,7 +134,7 @@ export default async function Post({
 											return (
 												<h4
 													id={id}
-													className="text-lg font-bold mt-6 mb-3 text-foreground scroll-mt-[20vh]"
+													className="text-lg font-semibold tracking-tight mt-8 mb-4 text-foreground scroll-mt-[20vh]"
 													{...props}
 												>
 													{children}
@@ -140,7 +143,7 @@ export default async function Post({
 										},
 										p: ({ node, ...props }) => (
 											<p
-												className="leading-relaxed mb-6 text-foreground tracking-wide"
+												className="text-[1.125rem] leading-8 mb-8 text-foreground/80 font-normal tracking-[-0.01em]"
 												{...props}
 											/>
 										),
@@ -148,7 +151,7 @@ export default async function Post({
 											const isExternal =
 												props.href?.startsWith("http");
 											const className =
-												"text-primary hover:underline underline-offset-4 decoration-muted-foreground/50 transition-colors";
+												"text-foreground font-medium underline underline-offset-4 decoration-muted-foreground/30 hover:decoration-foreground transition-all";
 
 											if (isExternal) {
 												return (
@@ -170,22 +173,28 @@ export default async function Post({
 										},
 										ul: ({ node, ...props }) => (
 											<ul
-												className="list-disc list-outside ml-6 mb-6 space-y-2"
+												className="list-disc list-outside ml-6 mb-8 space-y-3 text-[1.125rem] leading-8 text-foreground/90"
 												{...props}
 											/>
 										),
 										ol: ({ node, ...props }) => (
 											<ol
-												className="list-decimal list-outside ml-6 mb-6 space-y-2"
+												className="list-decimal list-outside ml-6 mb-8 space-y-3 text-[1.125rem] leading-8 text-foreground/90"
 												{...props}
 											/>
 										),
 										li: ({ node, ...props }) => (
-											<li className="pl-1" {...props} />
+											<li className="pl-2" {...props} />
 										),
 										blockquote: ({ node, ...props }) => (
 											<blockquote
-												className="border-l-4 border-muted pl-4 italic my-6"
+												className="border-l-2 border-muted-foreground/20 pl-6 my-10 italic text-muted-foreground"
+												{...props}
+											/>
+										),
+										hr: ({ node, ...props }) => (
+											<hr
+												className="my-16 mx-24 border-t border-muted-foreground/40"
 												{...props}
 											/>
 										),
@@ -206,21 +215,25 @@ export default async function Post({
 
 											return isInline ? (
 												<code
-													className="bg-muted px-1.5 py-0.5 rounded text-sm text-foreground"
+													className="bg-muted/50 px-1.5 py-0.5 rounded font-mono text-[0.9em] text-foreground"
 													{...props}
 												>
 													{children}
 												</code>
 											) : (
-												<CodeBlock
-													language={
-														match ? match[1] : ""
-													}
-													value={String(
-														children
-													).replace(/\n$/, "")}
-													className={className}
-												/>
+												<div className="my-10">
+													<CodeBlock
+														language={
+															match
+																? match[1]
+																: ""
+														}
+														value={String(
+															children
+														).replace(/\n$/, "")}
+														className={className}
+													/>
+												</div>
 											);
 										},
 										pre: ({ node, ...props }) => (

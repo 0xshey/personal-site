@@ -129,7 +129,3 @@ In the future, we could explore adding search functionality directly into the na
 ### Final Thoughts on Design
 
 Design is never truly finished. As your site grows and user needs evolve, your navigation should adapt. Regularly testing your navbar with real users can provide invaluable insights into how it's actually being used.
-
----
-
-_End of Guide. This article is approximately 1000 words to demonstrate the Table of Contents and scroll tracking functionality._

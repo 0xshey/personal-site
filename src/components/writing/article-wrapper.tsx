@@ -17,8 +17,15 @@ export function ArticleWrapper({ children, headings }: ArticleWrapperProps) {
 	useEffect(() => {
 		const observer = new IntersectionObserver(
 			(entries) => {
-				// We want to find the section that is currently most prominent
-				// For simplicity, we'll take the first intersecting one
+				// Only update if we're not at the very bottom
+				const isAtBottom =
+					window.innerHeight + window.scrollY >=
+					document.documentElement.scrollHeight - 50;
+				if (isAtBottom) {
+					setActiveId(headings[headings.length - 1].id);
+					return;
+				}
+
 				const visibleEntry = entries.find(
 					(entry) => entry.isIntersecting
 				);
@@ -32,12 +39,26 @@ export function ArticleWrapper({ children, headings }: ArticleWrapperProps) {
 			}
 		);
 
+		const handleScroll = () => {
+			const isAtBottom =
+				window.innerHeight + window.scrollY >=
+				document.documentElement.scrollHeight - 50;
+			if (isAtBottom) {
+				setActiveId(headings[headings.length - 1].id);
+			}
+		};
+
 		headings.forEach((heading) => {
 			const element = document.getElementById(heading.id);
 			if (element) observer.observe(element);
 		});
 
-		return () => observer.disconnect();
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			observer.disconnect();
+			window.removeEventListener("scroll", handleScroll);
+		};
 	}, [headings, setActiveId]);
 
 	// Effect to apply classes to children based on activeId
