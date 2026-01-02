@@ -58,7 +58,7 @@ export default async function Post({
 
 	return (
 		<WritingProvider>
-			<div className="w-full max-w-screen-2xl mx-auto mt-12 relative px-4 md:px-8">
+			<div className="w-full max-w-screen-xl mx-auto mt-12 relative px-4 md:px-8">
 				<Link
 					href="/writing"
 					className="inline-flex items-center gap-2 text-muted-foreground/50 hover:text-muted-foreground mb-8 text-sm group py-2"
@@ -237,7 +237,7 @@ export default async function Post({
 						</article>
 					</ArticleWrapper>
 
-					<aside className="hidden xl:block w-64 mt-48 sticky top-24 h-fit">
+					<aside className="hidden xl:block w-120 mt-48 sticky top-24 h-fit ml-20">
 						<TableOfContents headings={headings} />
 					</aside>
 				</div>
