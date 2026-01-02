@@ -7,6 +7,8 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { cn } from "@/lib/utils";
 
+import { CodeBlock } from "@/components/writing/code-block";
+
 export async function generateMetadata({
 	params,
 }: {
@@ -138,26 +140,14 @@ export default async function Post({
 										{children}
 									</code>
 								) : (
-									<div className="rounded-xl overflow-hidden my-6 bg-muted/50">
-										<div className="flex items-center justify-end px-3 py-1 bg-muted m-1 rounded-lg">
-											{match && (
-												<span className="text-xs text-muted-foreground">
-													{match[1]}
-												</span>
-											)}
-										</div>
-										<div className="p-4 overflow-x-auto">
-											<code
-												className={cn(
-													"text-sm block",
-													className
-												)}
-												{...props}
-											>
-												{children}
-											</code>
-										</div>
-									</div>
+									<CodeBlock
+										language={match ? match[1] : ""}
+										value={String(children).replace(
+											/\n$/,
+											""
+										)}
+										className={className}
+									/>
 								);
 							},
 							pre: ({ node, ...props }) => (
