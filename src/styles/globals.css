@@ -65,6 +65,9 @@
 	--color-border: hsl(var(--border));
 	--color-input: hsl(var(--input));
 	--color-ring: hsl(var(--ring));
+
+	--font-prose: var(--font-prose);
+	--font-serif: var(--font-serif);
 }
 
 @utility pb-safe {

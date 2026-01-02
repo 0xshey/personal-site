@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { fontSans, fontSerif, fontMono } from "@/fonts/fonts";
+import { fontSans, fontSerif, fontMono, fontProse } from "@/fonts/fonts";
 
 export default function FontProvider({
 	children,
@@ -10,7 +10,8 @@ export default function FontProvider({
 				fontSans.className, // default to sans
 				fontSans.variable,
 				fontSerif.variable,
-				fontMono.variable
+				fontMono.variable,
+				fontProse.variable
 			)}
 		>
 			{children}
