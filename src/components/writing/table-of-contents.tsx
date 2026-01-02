@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useWriting } from "./writing-context";
 
 interface Heading {
 	id: string;
@@ -14,38 +14,14 @@ interface TableOfContentsProps {
 }
 
 export function TableOfContents({ headings }: TableOfContentsProps) {
-	const [activeId, setActiveId] = useState<string>("");
-
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				// Find the first entry that is intersecting
-				const visibleEntry = entries.find(
-					(entry) => entry.isIntersecting
-				);
-				if (visibleEntry) {
-					setActiveId(visibleEntry.target.id);
-				}
-			},
-			{
-				rootMargin: "-20% 0% -60% 0%", // Adjust based on the 20% requirements
-				threshold: 0.1,
-			}
-		);
-
-		headings.forEach((heading) => {
-			const element = document.getElementById(heading.id);
-			if (element) observer.observe(element);
-		});
-
-		return () => observer.disconnect();
-	}, [headings]);
+	const { activeId, setIsDimmed } = useWriting();
 
 	const handleClick = (
 		e: React.MouseEvent<HTMLAnchorElement>,
 		id: string
 	) => {
 		e.preventDefault();
+		setIsDimmed(true);
 		const element = document.getElementById(id);
 		if (element) {
 			const viewportHeight = window.innerHeight;
