@@ -12,6 +12,9 @@ import { TableOfContents } from "@/components/writing/table-of-contents";
 import { WritingProvider } from "@/components/writing/writing-context";
 import { ArticleWrapper } from "@/components/writing/article-wrapper";
 import GithubSlugger from "github-slugger";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
 
 export async function generateMetadata({
 	params,
@@ -86,8 +89,8 @@ export default async function Post({
 
 							<div className="prose prose-neutral dark:prose-invert max-w-2xl mt-16 pb-[50vh]">
 								<ReactMarkdown
-									remarkPlugins={[remarkGfm]}
-									rehypePlugins={[rehypeRaw]}
+									remarkPlugins={[remarkGfm, remarkMath]}
+									rehypePlugins={[rehypeRaw, rehypeKatex]}
 									components={{
 										h1: ({ node, children, ...props }) => {
 											const text = String(children);
