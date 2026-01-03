@@ -50,7 +50,7 @@ export default function Navigator({ links, className }: NavigatorProps) {
 	return (
 		<nav
 			className={cn(
-				"pointer-events-none sticky top-0 isolate z-20 flex justify-center py-4 px-1 md:justify-between",
+				"w-full pointer-events-none sticky top-0 isolate z-20 flex justify-center py-4 px-1 md:justify-between",
 				className
 			)}
 		>
@@ -62,7 +62,11 @@ export default function Navigator({ links, className }: NavigatorProps) {
 				onMouseLeave={() => setHoveredPath(null)}
 			>
 				{links.map((link) => {
-					const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href) || activeSection === link.href.slice(1);
+					const isActive =
+						link.href === "/"
+							? pathname === "/"
+							: pathname.startsWith(link.href) ||
+							  activeSection === link.href.slice(1);
 					return (
 						<Link
 							key={link.href}
@@ -71,7 +75,9 @@ export default function Navigator({ links, className }: NavigatorProps) {
 							onClick={(e) => {
 								if (link.href.startsWith("#")) {
 									e.preventDefault();
-									const section = document.getElementById(link.href.slice(1));
+									const section = document.getElementById(
+										link.href.slice(1)
+									);
 									if (section) {
 										smoothScrollTo(section);
 									}
@@ -80,14 +86,20 @@ export default function Navigator({ links, className }: NavigatorProps) {
 							onMouseEnter={() => setHoveredPath(link.href)}
 							className={cn(
 								"relative px-3 py-1 rounded-sm text-sm transition-colors duration-200",
-								isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+								isActive
+									? "text-foreground"
+									: "text-muted-foreground hover:text-foreground"
 							)}
 						>
 							{isActive && (
 								<motion.div
 									layoutId="active-nav-pill"
 									className="absolute inset-0 rounded-sm"
-									transition={{ type: "spring", stiffness: 300, damping: 30 }}
+									transition={{
+										type: "spring",
+										stiffness: 300,
+										damping: 30,
+									}}
 									style={{ zIndex: -1 }}
 								/>
 							)}
@@ -95,7 +107,11 @@ export default function Navigator({ links, className }: NavigatorProps) {
 								<motion.div
 									layoutId="hover-nav-pill"
 									className="absolute inset-0 bg-muted rounded-sm"
-									transition={{ type: "spring", bounce: 0.2, duration: 0.3 }}
+									transition={{
+										type: "spring",
+										bounce: 0.2,
+										duration: 0.3,
+									}}
 									style={{ zIndex: -2 }}
 								/>
 							)}
@@ -119,7 +135,6 @@ export default function Navigator({ links, className }: NavigatorProps) {
 						CV
 					</Link>
 					<ThemeToggle />
-					
 				</div>
 			</motion.div>
 		</nav>
