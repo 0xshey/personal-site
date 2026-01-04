@@ -61,7 +61,7 @@ export default async function Post({
 
 	return (
 		<WritingProvider>
-			<div className="w-full max-w-screen-2xl mx-auto mt-12 relative px-4 md:px-8">
+			<div className="w-full max-w-screen-2xl mx-auto mt-12 relative px-1 md:px-8">
 				<Link
 					href="/writing"
 					className="inline-flex items-center gap-2 text-muted-foreground/50 hover:text-muted-foreground mb-8 text-sm group py-2"
@@ -76,10 +76,10 @@ export default async function Post({
 					<ArticleWrapper headings={headings}>
 						<article className="mt-24 flex-1 min-w-0">
 							<header className="mt-12">
-								<h1 className="text-4xl md:text-7xl font-serif font-medium tracking-tight text-foreground mb-4">
+								<h1 className="text-6xl md:text-7xl font-serif font-medium tracking-tight text-foreground mb-4">
 									{post.title}
 								</h1>
-								<time className="text-base text-muted-foreground/60 font-medium">
+								<time className="text-sm text-muted-foreground/60 font-medium">
 									{format(
 										new Date(post.date),
 										"MMMM d, yyyy"
@@ -87,7 +87,7 @@ export default async function Post({
 								</time>
 							</header>
 
-							<div className="prose prose-neutral dark:prose-invert max-w-2xl mt-16 pb-[50vh]">
+							<div className="prose prose-neutral dark:prose-invert max-w-2xl mt-4 pb-[50vh]">
 								<ReactMarkdown
 									remarkPlugins={[remarkGfm, remarkMath]}
 									rehypePlugins={[rehypeRaw, rehypeKatex]}

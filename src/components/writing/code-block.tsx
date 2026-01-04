@@ -35,7 +35,7 @@ export function CodeBlock({ value, language, className }: CodeBlockProps) {
 					onClick={copyToClipboard}
 					className={cn(
 						"p-1.5 rounded-md transition-all duration-200 hover:bg-background/80",
-						"opacity-0 group-hover:opacity-100 focus:opacity-100",
+						"opacity-100 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100",
 						copied
 							? "text-green-500"
 							: "text-muted-foreground hover:text-foreground"
