@@ -50,7 +50,7 @@ export default function Navigator({ links, className }: NavigatorProps) {
 	return (
 		<nav
 			className={cn(
-				"w-full pointer-events-none sticky top-0 isolate z-20 flex justify-center py-4 px-1 md:justify-between",
+				"w-full pointer-events-none sticky top-0 isolate z-20 flex justify-center py-4 px-1 md:justify-between overflow-hidden",
 				className
 			)}
 		>
