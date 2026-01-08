@@ -10,7 +10,7 @@ const links = [
 	{ label: "Shey", href: "/" },
 	{ label: "Work", href: "/work" },
 	{ label: "Writing", href: "/writing" },
-	{ label: "Life", href: "/life" },
+	// { label: "Life", href: "/life" },
 	{ label: "Connect", href: "/connect" },
 ];
 

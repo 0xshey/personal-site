@@ -5,13 +5,22 @@ import { Tile, BaseTileProps } from "./index";
 interface ArticleTileProps extends BaseTileProps {
 	section: string;
 	label: string;
-    title: string;
-    excerpt: string;
-    date: string;
-    readTime?: string;
+	title: string;
+	excerpt: string;
+	date: string;
+	readTime?: string;
 }
 
-export function ArticleTile({ section, label, title, excerpt, date, readTime, className, href }: ArticleTileProps) {
+export function ArticleTile({
+	section,
+	label,
+	title,
+	excerpt,
+	date,
+	readTime,
+	className,
+	href,
+}: ArticleTileProps) {
 	return (
 		<Tile href={href} className={cn("", className)}>
 			<div className="group relative h-full w-full">
@@ -25,8 +34,12 @@ export function ArticleTile({ section, label, title, excerpt, date, readTime, cl
 					</div>
 
 					<div className="z-20 flex flex-col justify-start p-4">
-						<h3 className="text-4xl font-serif mb-3 leading-tight">{title}</h3>
-						<p className="text-muted-foreground line-clamp-3 leading-relaxed">{excerpt}</p>
+						<h3 className="text-4xl font-serif mb-3 leading-tight">
+							{title}
+						</h3>
+						<p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">
+							{excerpt}
+						</p>
 					</div>
 				</div>
 			</div>

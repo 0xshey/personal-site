@@ -51,31 +51,34 @@ export function MusicTile({
 
 				{/* Links */}
 				<div className="h-8 px-4 py-2">
-					<div className="text-sm text-muted-foreground/60 flex items-center gap-4">
-						{spotifyUrl && (
-							<Link
-								href={spotifyUrl}
-								className="hover:text-muted-foreground text-sm decoration-white/30 transition-all cursor-pointer"
-							>
-								Spotify
-							</Link>
-						)}
-						{appleMusicUrl && (
-							<Link
-								href={appleMusicUrl}
-								className="hover:text-muted-foreground text-sm decoration-white/30 transition-all cursor-pointer"
-							>
-								Apple Music
-							</Link>
-						)}
-						{youtubeUrl && (
-							<Link
-								href={youtubeUrl}
-								className="hover:text-muted-foreground text-sm decoration-white/30 transition-all cursor-pointer"
-							>
-								YouTube
-							</Link>
-						)}
+					<div className="text-sm text-muted-foreground/60 flex items-center justify-between gap-4">
+						<p>On repeat</p>
+						<div className="flex items-center gap-2">
+							{spotifyUrl && (
+								<Link
+									href={spotifyUrl}
+									className="hover:text-muted-foreground text-sm decoration-white/30 transition-all cursor-pointer"
+								>
+									Spotify
+								</Link>
+							)}
+							{appleMusicUrl && (
+								<Link
+									href={appleMusicUrl}
+									className="hover:text-muted-foreground text-sm decoration-white/30 transition-all cursor-pointer"
+								>
+									Apple Music
+								</Link>
+							)}
+							{youtubeUrl && (
+								<Link
+									href={youtubeUrl}
+									className="hover:text-muted-foreground text-sm decoration-white/30 transition-all cursor-pointer"
+								>
+									YouTube
+								</Link>
+							)}
+						</div>
 					</div>
 				</div>
 

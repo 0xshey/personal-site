@@ -68,11 +68,11 @@ export function ExternalLinkTile({
 
 				{/* Footer Info */}
 				<div className="z-20 flex flex-col justify-start p-4 bg-gradient-to-t from-muted via-muted/80 to-transparent">
-					<h3 className="text-4xl font-serif mb-3 leading-tight">
+					<h3 className="text-4xl font-serif leading-tight">
 						{title}
 					</h3>
 					{description && (
-						<p className="text-muted-foreground line-clamp-3 leading-relaxed">
+						<p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">
 							{description}
 						</p>
 					)}

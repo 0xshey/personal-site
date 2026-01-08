@@ -70,7 +70,7 @@ export function SnippetTile({
 							{title}
 						</h3>
 						{description && (
-							<p className="text-muted-foreground line-clamp-3 leading-relaxed">
+							<p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">
 								{description}
 							</p>
 						)}

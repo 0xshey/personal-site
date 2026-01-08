@@ -19,20 +19,20 @@ export default function Home() {
 			<div
 				className={cn(
 					"w-full h-fit gap-2 flex flex-col md:px-8",
-					"sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+					"grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
 				)}
 			>
 				{/* 1. Intro Tile - Custom transparent tile */}
 				<div
 					className={cn(
 						"aspect-square bg-transparent h-full w-full flex items-center ",
-						"col-span-1 aspect-[1/1] row-span-2 sm:col-span-2 sm:aspect-[2/1]"
+						"col-span-2 row-span-2"
 					)}
 				>
 					<div
 						className={cn(
 							"font-medium font-serif",
-							"text-4xl md:text-[2.8rem]"
+							"text-3xl sm:text-4xl md:text-[2.8rem]"
 						)}
 					>
 						<p className="text-balance space-y-4 text-muted-foreground">
@@ -64,7 +64,7 @@ export default function Home() {
 					</div>
 				</div>
 
-				{/* 2. Project Tile */}
+				{/* 1. Project Tile */}
 				<Tile.Project
 					className={cn("col-span-1 aspect-1/1")}
 					href="https://backboard-rankings.vercel.app"
@@ -74,19 +74,7 @@ export default function Home() {
 					image="/images/projects/backboard/1.png"
 				/>
 
-				{/* 3. Article Tile */}
-				<Tile.Article
-					section="Writing"
-					label="Hello World"
-					className={cn("col-span-1 aspect-1/1")}
-					href="/writing/hello-world"
-					title="Hello World"
-					excerpt="This is my first post on the new site design. I designed this writing page to free myself from wordpress and other blog hosting sites. Using a markdown renderer in react allows me to style my posts and pages without the shackles of third party api's."
-					date="Mar 22, 2024"
-					readTime="2 min"
-				/>
-
-				{/* 5. Music Tile */}
+				{/* 2. Music Tile */}
 				<Tile.Music
 					className={cn("col-span-1 aspect-square")}
 					artist="Creedence Clearwater Revival"
@@ -96,7 +84,19 @@ export default function Home() {
 					appleMusicUrl="https://music.apple.com/us/song/green-river/1440952830"
 				/>
 
-				{/* 6. Photos Tile */}
+				{/* 3. Article Tile */}
+				<Tile.Article
+					section="Writing"
+					label="Hello World"
+					className={cn("col-span-2 aspect-2/1")}
+					href="/writing/hello-world"
+					title="Hello World"
+					excerpt="This is my first post on the new site design. I designed this writing page to free myself from wordpress and other blog hosting sites. Using a markdown renderer in react allows me to style my posts and pages without the shackles of third party api's."
+					date="Mar 22, 2024"
+					readTime="2 min"
+				/>
+
+				{/* 4. Photos Tile */}
 				<Tile.Photos
 					className={cn("col-span-1 aspect-square")}
 					section="Photos"
@@ -113,30 +113,7 @@ export default function Home() {
 					description="The spoiled kitty of the apartment."
 				/>
 
-				{/* 7. Snippet Tile (Markdown) */}
-				<Tile.Snippet
-					className={cn("col-span-1 aspect-[2/1]", "md:col-span-2")}
-					section="Code"
-					label="Algorithms"
-					title="Quick Sort (Python)"
-					description="A simple implementation of the Quick Sort algorithm in Python."
-					image="/images/projects/backboard/roster-page.png"
-					tags={["Python", "Algorithms", "Sorting"]}
-					content={`
-						\`\`\`python
-						def quicksort(arr):
-							if len(arr) <= 1:
-								return arr
-							pivot = arr[len(arr) // 2]
-							left = [x for x in arr if x < pivot]
-							middle = [x for x in arr if x == pivot]
-							right = [x for x in arr if x > pivot]
-							return quicksort(left) + middle + quicksort(right)
-						\`\`\`
-					`}
-				/>
-
-				{/* 8. External Link Tile */}
+				{/* 5. External Link Tile */}
 				<Tile.ExternalLink
 					className={cn("col-span-1 aspect-square")}
 					title="Godly"
