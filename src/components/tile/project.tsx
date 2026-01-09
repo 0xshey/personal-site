@@ -23,12 +23,12 @@ export function ProjectTile({
 		<Tile href={href} className={cn("", className)}>
 			<div className="group relative h-full w-full">
 				{image && (
-					<div className="absolute mx-auto w-4/5 h-full left-1/2 -translate-x-1/2  translate-y-30">
+					<div className="absolute mx-auto w-4/5 h-full left-1/2 -translate-x-1/2 translate-y-12">
 						<Image
 							src={image}
 							alt={""}
 							fill
-							className="object-cover transition-all duration-200 group-hover:scale-108 border shadow-md hover:shadow-xl rounded-md"
+							className="object-cover transition-all duration-200 group-hover:scale-105 border shadow-md hover:shadow-xl rounded-md"
 						/>
 					</div>
 				)}

@@ -15,7 +15,7 @@ export default function WorkPage() {
 				transition={{ duration: 0.5 }}
 				className="max-w-2xl"
 			>
-				<h1 className="text-8xl font-medium mb-8 font-serif">Work</h1>
+				<h1 className="text-6xl font-medium mb-8 font-serif">Work</h1>
 				<p className="pl-2 text-md tracking-wide text-muted-foreground leading-relaxed mb-12">
 					When I build tools and apps, and finally convert them into a
 					tangible product, I will post it here. I hope to inspire and

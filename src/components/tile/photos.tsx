@@ -64,7 +64,7 @@ export function PhotosTile({
 					</div>
 
 					{/* Photos Area */}
-					<div className="relative flex-1 flex items-center justify-center p-6 translate-y-8">
+					<div className="relative flex-1 flex items-center justify-center p-6">
 						{isSingle ? (
 							<div className="absolute inset-0 w-full h-full">
 								<Image

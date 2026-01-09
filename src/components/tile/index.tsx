@@ -9,40 +9,44 @@ import { SnippetTile } from "./snippet";
 import { PhotosTile } from "./photos";
 import { MusicTile } from "./music";
 import { ExternalLinkTile } from "./external-link";
+import { SocialTile } from "./social";
 
 // --- Types ---
 export interface BaseTileProps {
 	className?: string;
 	children?: React.ReactNode;
 	href?: string;
-    onClick?: () => void;
+	onClick?: () => void;
 }
 
 // --- Base Tile ---
 export function Tile({ className, children, href, onClick }: BaseTileProps) {
 	const Wrapper = href ? Link : motion.div;
-    
-    const gridClasses = className?.match(/(col|row)-(span|start|end)-[^\s]+/g)?.join(" ") || "";
-    
-    const wrapperClassName = cn(
-        href ? "block" : "",
-        "h-full w-full",
-        gridClasses
-    );
 
-    const props = href ? { href, className: wrapperClassName } : { className: wrapperClassName, onClick };
+	const gridClasses =
+		className?.match(/(col|row)-(span|start|end)-[^\s]+/g)?.join(" ") || "";
+
+	const wrapperClassName = cn(
+		href ? "block" : "",
+		"h-full w-full",
+		gridClasses
+	);
+
+	const props = href
+		? { href, className: wrapperClassName }
+		: { className: wrapperClassName, onClick };
 
 	return (
-		<Wrapper {...props as any}>
+		<Wrapper {...(props as any)}>
 			<motion.div
 				transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                className={cn(
-                    "relative h-full w-full overflow-hidden rounded-xl border border-transparent text-card-foreground transition-colors",
+				className={cn(
+					"relative h-full w-full overflow-hidden rounded-xl border border-transparent text-card-foreground transition-colors",
 					"bg-muted/75 hover:bg-muted",
-                    className
-                )}
+					className
+				)}
 			>
-				{children}	
+				{children}
 			</motion.div>
 		</Wrapper>
 	);
@@ -54,3 +58,4 @@ Tile.Snippet = SnippetTile;
 Tile.Photos = PhotosTile;
 Tile.Music = MusicTile;
 Tile.ExternalLink = ExternalLinkTile;
+Tile.Social = SocialTile;

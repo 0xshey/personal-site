@@ -87,12 +87,12 @@ export default function Home() {
 				{/* 3. Article Tile */}
 				<Tile.Article
 					section="Writing"
-					label="Hello World"
+					label="Why a Website?"
 					className={cn("col-span-2 aspect-2/1")}
-					href="/writing/hello-world"
-					title="Hello World"
-					excerpt="This is my first post on the new site design. I designed this writing page to free myself from wordpress and other blog hosting sites. Using a markdown renderer in react allows me to style my posts and pages without the shackles of third party api's."
-					date="Mar 22, 2024"
+					href="/writing/why-a-website"
+					title="Why a Website?"
+					excerpt="Does developing a website really help me? Everyone has their reasons, but here is mine."
+					date="Jan 8, 2026"
 					readTime="2 min"
 				/>
 
