@@ -51,8 +51,8 @@ export function MusicTile({
 
 				{/* Links */}
 				<div className="h-8 px-4 py-2">
-					<div className="text-sm text-muted-foreground/60 flex items-center justify-between gap-4">
-						<p>On repeat</p>
+					<div className="text-sm text-muted-foreground/60 flex items-center justify-between gap-4 leading-none">
+						<p>🎧</p>
 						<div className="flex items-center gap-2">
 							{spotifyUrl && (
 								<Link

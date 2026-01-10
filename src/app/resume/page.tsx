@@ -24,7 +24,7 @@ export default function ResumePage() {
 					className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors w-fit group"
 				>
 					<ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-					<span className="text-sm font-medium">Back to Work</span>
+					<span className="text-sm font-medium">Back</span>
 				</Link>
 
 				<ResumeHeader
