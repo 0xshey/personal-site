@@ -1,9 +1,4 @@
-import {
-	Geist,
-	Instrument_Serif,
-	Spline_Sans_Mono,
-	Domine,
-} from "next/font/google";
+import { Geist, Instrument_Serif, Xanh_Mono, Domine } from "next/font/google";
 import localFont from "next/font/local";
 
 // const geist = localFont({
@@ -27,7 +22,8 @@ const fontSerif = Instrument_Serif({
 	variable: "--font-serif",
 });
 
-const fontMono = Spline_Sans_Mono({
+const fontMono = Xanh_Mono({
+	weight: ["400"],
 	subsets: ["latin"],
 	variable: "--font-mono",
 });

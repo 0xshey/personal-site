@@ -4,9 +4,9 @@ import { cn } from "@/lib/utils";
 import { Tile } from "@/components/tile";
 import { useTheme } from "next-themes";
 
-export default function Home() {
-	const { resolvedTheme } = useTheme();
+import { LandingText } from "@/components/home/landing-text";
 
+export default function Home() {
 	return (
 		<div
 			className={cn(
@@ -14,56 +14,14 @@ export default function Home() {
 				"md:max-w-screen-md lg:max-w-screen-2xl"
 			)}
 		>
-			<div className={cn("w-full min-h-24", "md:min-h-32")} />{" "}
-			{/* Leading Content Buffer */}
+			<div className={cn("w-full min-h-24")} /> {/* Landing Text */}
+			<LandingText />
 			<div
 				className={cn(
 					"w-full h-fit gap-2 flex flex-col md:px-8",
 					"grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
 				)}
 			>
-				{/* 1. Intro Tile - Custom transparent tile */}
-				<div
-					className={cn(
-						"aspect-square bg-transparent h-full w-full flex items-center ",
-						"col-span-2 row-span-2"
-					)}
-				>
-					<div
-						className={cn(
-							"font-medium font-serif",
-							"text-3xl sm:text-4xl md:text-[2.8rem]"
-						)}
-					>
-						<p className="text-balance space-y-4 text-muted-foreground">
-							<p>Hey! I'm Shey 👋</p>
-							<p>
-								I'm Shey, a full-stack developer based in San
-								Francisco{" "}
-								{resolvedTheme == "dark" ? "🌉" : "🌁"}
-							</p>
-							<p>
-								When I'm not spending my time{" "}
-								<Link href="/work" className="text-foreground">
-									coding
-								</Link>
-								, I'm behind the bar, playing basketball or
-								exploring California
-							</p>
-							<p>
-								Check back here for any updates on my projects —
-								I'm currently working on{" "}
-								<Link
-									href="https://backboard-rankings.vercel.app"
-									className="text-foreground"
-								>
-									Backboard ⛹️‍♂️
-								</Link>
-							</p>
-						</p>
-					</div>
-				</div>
-
 				{/* 1. Project Tile */}
 				<Tile.Project
 					className={cn("col-span-1 aspect-1/1")}
