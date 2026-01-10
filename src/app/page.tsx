@@ -3,6 +3,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Tile } from "@/components/tile";
 import { useTheme } from "next-themes";
+import { Github, Linkedin, Instagram, AtSign } from "lucide-react";
 
 import { LandingText } from "@/components/home/landing-text";
 
@@ -19,7 +20,7 @@ export default function Home() {
 			<div
 				className={cn(
 					"w-full h-fit gap-2 flex flex-col md:px-8",
-					"grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+					"grid grid-cols-2 lg:grid-cols-4"
 				)}
 			>
 				{/* 1. Project Tile */}
@@ -80,6 +81,34 @@ export default function Home() {
 					imageStyle="cropped"
 					image="/images/external-links/godly.png"
 				/>
+
+				{/* 6. Social Subgrid Tile */}
+				<div className="col-span-2 aspect-[2/1] grid grid-cols-2 grid-rows-2 gap-2">
+					<Tile.Social
+						href="https://threads.net/0xshey"
+						icon={AtSign}
+						label="Threads"
+						username="@0xshey"
+					/>
+					<Tile.Social
+						href="https://www.instagram.com/0xshey/"
+						icon={Instagram}
+						label="Instagram"
+						username="@0xshey"
+					/>
+					<Tile.Social
+						href="https://github.com/0xshey"
+						icon={Github}
+						label="GitHub"
+						username="@0xshey"
+					/>
+					<Tile.Social
+						href="https://linkedin.com/in/shey"
+						icon={Linkedin}
+						label="LinkedIn"
+						username="@shey"
+					/>
+				</div>
 			</div>
 		</div>
 	);
