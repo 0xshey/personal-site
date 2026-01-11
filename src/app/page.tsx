@@ -50,7 +50,7 @@ export default function Home() {
 					className={cn("col-span-2 aspect-2/1")}
 					href="/writing/why-a-website"
 					title="Why a Website?"
-					excerpt="Does developing a website really help me? Everyone has their reasons, but here is mine."
+					excerpt="A personal website gives me a flexible, self‑directed space to showcase work, test ideas, and learn by building. It isn’t the end goal—it’s the platform that lets me share what I actually care about, like developing Backboard and exploring better interfaces. Over time, I’ll keep publishing projects and experiments, inviting feedback and making the experience feel intentional and native to the things I create."
 					date="Jan 8, 2026"
 					readTime="2 min"
 				/>

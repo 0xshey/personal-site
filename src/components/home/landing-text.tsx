@@ -10,7 +10,7 @@ export function LandingText() {
 	return (
 		<div
 			className={cn(
-				"w-full max-w-6xl px-4 mx-auto my-16 md:my-32",
+				"w-full max-w-7xl px-2 mx-auto md:my-32 mb-16",
 				"bg-transparent text-center",
 				"font-light font-sans text-balance text-muted-foreground tracking-tighter",
 				"text-[1.5rem] md:text-[2.4rem] leading-tight",
@@ -19,9 +19,9 @@ export function LandingText() {
 		>
 			<p>Hey! I'm Shey 👋 Thank you for visiting my space online.</p>
 			<p>
-				I built this space to share the products of what I am passionate
-				about. I develop statistic centric tools, and do my best to
-				bring them to life in tangible applications.{" "}
+				I built this space to share the results of what I am passionate
+				about. I love developing data oriented tools and visualisations,
+				and do my best to bring them to life as tangible applications.{" "}
 			</p>
 			<p>
 				I'm always trying to learn new skills, frameworks and tools. I
@@ -38,7 +38,7 @@ export function LandingText() {
 			</p>
 			<p>
 				I am currently based in the Bay Area, CA{" "}
-				{resolvedTheme == "dark" ? "🌉" : "🌁"}, but I was born and grew
+				{resolvedTheme == "dark" ? "🌉" : "🌁"}, but I am from and grew
 				up in the south west of Australia, graduating from Computer
 				Science in Perth, WA.
 			</p>
