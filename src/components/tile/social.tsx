@@ -20,7 +20,7 @@ export function SocialTile({
 			<div className="relative h-full w-full flex flex-col items-start justify-between p-4 overflow-hidden">
 				{/* Top Row: Icon and Arrow */}
 				<div className="flex justify-between items-start z-10">
-					<div className="backdrop-blur-sm rounded-lg border border-border/50 group-hover:border-border transition-colors">
+					<div className="backdrop-blur-sm rounded-xl group-hover:border-border transition-colors">
 						<Icon className="w-6 h-6 text-muted-foreground" />
 					</div>
 				</div>

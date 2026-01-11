@@ -15,7 +15,7 @@ export default function Home() {
 				"md:max-w-screen-md lg:max-w-screen-2xl"
 			)}
 		>
-			<div className={cn("w-full min-h-24")} /> {/* Landing Text */}
+			<div className={cn("w-full min-h-20")} /> {/* Landing Text */}
 			<LandingText />
 			<div
 				className={cn(
@@ -33,29 +33,7 @@ export default function Home() {
 					image="/images/projects/backboard/1.png"
 				/>
 
-				{/* 2. Music Tile */}
-				<Tile.Music
-					className={cn("col-span-1 aspect-square")}
-					artist="Creedence Clearwater Revival"
-					song="Green River"
-					coverArt="https://concord.com/wp-content/uploads/2014/12/CCR_GREENRIVER_cover_5x5_300_rgb_WEB.jpg" // Placeholder - would replace with album art
-					spotifyUrl="https://open.spotify.com/track/11DjZQEZ69EXLo77HVj6yW?si=f443cb8740cc4ac2"
-					appleMusicUrl="https://music.apple.com/us/song/green-river/1440952830"
-				/>
-
-				{/* 3. Article Tile */}
-				<Tile.Article
-					section="Writing"
-					label="Why a Website?"
-					className={cn("col-span-2 aspect-2/1")}
-					href="/writing/why-a-website"
-					title="Why a Website?"
-					excerpt="A personal website gives me a flexible, self‑directed space to showcase work, test ideas, and learn by building. It isn’t the end goal—it’s the platform that lets me share what I actually care about, like developing Backboard and exploring better interfaces. Over time, I’ll keep publishing projects and experiments, inviting feedback and making the experience feel intentional and native to the things I create."
-					date="Jan 8, 2026"
-					readTime="2 min"
-				/>
-
-				{/* 4. Photos Tile */}
+				{/* 2. Photos Tile */}
 				<Tile.Photos
 					className={cn("col-span-1 aspect-square")}
 					section="Photos"
@@ -70,6 +48,28 @@ export default function Home() {
 					]}
 					title="Lila"
 					description="The spoiled kitty of the apartment."
+				/>
+
+				{/* 3. Article Tile */}
+				<Tile.Article
+					section="Writing"
+					label="Why a Website?"
+					className={cn("col-span-2 aspect-2/1")}
+					href="/writing/why-a-website"
+					title="Why a Website?"
+					excerpt="A personal website gives me a flexible, self‑directed space to showcase work, test ideas, and learn by building. It isn’t the end goal—it’s the platform that lets me share what I actually care about, like developing Backboard and exploring better interfaces. Over time, I’ll keep publishing projects and experiments, inviting feedback and making the experience feel intentional and native to the things I create."
+					date="Jan 8, 2026"
+					readTime="2 min"
+				/>
+
+				{/* 4. Music Tile */}
+				<Tile.Music
+					className={cn("col-span-1 aspect-square")}
+					artist="Creedence Clearwater Revival"
+					song="Green River"
+					coverArt="https://concord.com/wp-content/uploads/2014/12/CCR_GREENRIVER_cover_5x5_300_rgb_WEB.jpg" // Placeholder - would replace with album art
+					spotifyUrl="https://open.spotify.com/track/11DjZQEZ69EXLo77HVj6yW?si=f443cb8740cc4ac2"
+					appleMusicUrl="https://music.apple.com/us/song/green-river/1440952830"
 				/>
 
 				{/* 5. External Link Tile */}

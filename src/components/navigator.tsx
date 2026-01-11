@@ -50,7 +50,7 @@ export default function Navigator({ links, className }: NavigatorProps) {
 	return (
 		<nav
 			className={cn(
-				"w-full pointer-events-none sticky top-0 isolate z-20 flex justify-center py-4 px-1 md:justify-between overflow-hidden",
+				"w-full pointer-events-none sticky top-0 isolate z-40 flex justify-center py-4 px-1 md:justify-between overflow-hidden",
 				className
 			)}
 		>
@@ -125,16 +125,18 @@ export default function Navigator({ links, className }: NavigatorProps) {
 				initial={{ y: -100, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
 				transition={{ type: "spring", stiffness: 260, damping: 20 }}
-				className="flex items-center gap-1 px-1 hidden md:block"
+				className="flex items-center gap-1 px-1"
 			>
 				<div className="pointer-events-auto flex items-center gap-6">
 					<Link
 						href="/resume"
-						className="text-sm text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center gap-0.5"
+						className="pl-4 text-sm text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center gap-0.5"
 					>
 						CV
 					</Link>
-					<ThemeToggle />
+					<div className="hidden md:block">
+						<ThemeToggle />
+					</div>
 				</div>
 			</motion.div>
 		</nav>

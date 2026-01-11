@@ -10,7 +10,7 @@ export function LandingText() {
 	return (
 		<div
 			className={cn(
-				"w-full max-w-7xl px-2 mx-auto md:my-32 mb-16",
+				"w-full max-w-7xl px-2 mx-auto mb-16 md:my-32",
 				"bg-transparent text-center",
 				"font-light font-sans text-balance text-muted-foreground tracking-tighter",
 				"text-[1.5rem] md:text-[2.4rem] leading-tight",
