@@ -81,13 +81,12 @@ export default function WorkPage() {
 
 					{/* Add more projects here as needed */}
 				</motion.div>
-
 				{/* Footer - Tech Stack */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5, delay: 0.2 }}
-					className="w-full"
+					className="w-fit mx-auto border-t border-border pt-24"
 				>
 					<TechStackSidebar />
 				</motion.div>
