@@ -32,7 +32,8 @@
     "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
     "remark-math": "^6.0.0",
-    "tailwind-merge": "^2.6.0"
+    "tailwind-merge": "^2.6.0",
+    "tech-stack-icons": "^3.3.2"
   },
   "devDependencies": {
     "@types/node": "^20",
