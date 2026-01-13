@@ -12,7 +12,7 @@ I write this in some way to self validate the effort of assembling a personal pa
 
 For myself, being able to freely control the space that represents my work is why I am motivated to develop this space. A place to display and demo things that I am working on, want to share with peers or affirm to myself, I can make space for on my site.
 
-Ultimately a personal site is not what I am most passionate about in development, but it allows me to share the things that I do care about. As I develop and add features to my NBA Fantasy toolkit — [Backboard](https://backboard-rankings.vercel.app) — I can add my own commentary and meta, even if I am the only one to ever read it.
+Ultimately a personal site is not what I am most passionate about in development, but it allows me to share the things that I do care about. As I develop and add features to my NBA Fantasy toolkit — [Backboard](https://backboard.dev) — I can add my own commentary and meta, even if I am the only one to ever read it.
 
 Developing a website also gives me a space to learn more about certain development and front-end patterns that I can use and demo. While this is also not first priority, the importance of learning how to make tangible and pleasant interfaces for your tools is becoming more important than ever.
 

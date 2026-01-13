@@ -26,7 +26,7 @@ export default function Home() {
 				{/* 1. Project Tile */}
 				<Tile.Project
 					className={cn("col-span-1 aspect-1/1")}
-					href="https://backboard-rankings.vercel.app"
+					href="https://backboard.dev"
 					section="Work"
 					label="Backboard"
 					tags={["Next.js", "Python", "Supabase"]}

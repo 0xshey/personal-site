@@ -104,7 +104,7 @@ export default function ResumePage() {
 									},
 									{
 										title: "Live Application",
-										url: "https://backboard-rankings.vercel.app/",
+										url: "https://backboard.dev/",
 										type: "deployment",
 									},
 								]}

@@ -10,6 +10,7 @@ const BACKEND_DB = [
 	{ name: "PostgreSQL", iconName: "postgresql" },
 	{ name: "MySQL", iconName: "mysql" },
 	{ name: "Supabase", iconName: "supabase" },
+	{ name: "Swift", iconName: "swift" },
 ];
 
 const FRONTEND_DEPLOY = [
