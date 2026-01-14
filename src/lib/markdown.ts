@@ -1,10 +1,10 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { remark } from "remark";
+import html from "remark-html";
 
-const postsDirectory = path.join(process.cwd(), 'src/content/writing');
+const postsDirectory = path.join(process.cwd(), "src/content/writing");
 
 export interface Post {
 	slug: string;
@@ -15,32 +15,32 @@ export interface Post {
 }
 
 export function getPostSlugs() {
-		// catch if directory doesn't exist
-		if (!fs.existsSync(postsDirectory)) {
-			return [];
-		}
+	// catch if directory doesn't exist
+	if (!fs.existsSync(postsDirectory)) {
+		return [];
+	}
 	return fs.readdirSync(postsDirectory);
 }
 
 export function getPostBySlug(slug: string, fields: string[] = []): Post {
-	const realSlug = slug.replace(/\.md$/, '');
+	const realSlug = slug.replace(/\.md$/, "");
 	const fullPath = path.join(postsDirectory, `${realSlug}.md`);
-	const fileContents = fs.readFileSync(fullPath, 'utf8');
+	const fileContents = fs.readFileSync(fullPath, "utf8");
 	const { data, content } = matter(fileContents);
 
 	const items: any = {};
 
 	// Ensure only the minimal needed data is exposed
 	fields.forEach((field) => {
-		if (field === 'slug') {
-		items[field] = realSlug;
+		if (field === "slug") {
+			items[field] = realSlug;
 		}
-		if (field === 'content') {
-		items[field] = content;
+		if (field === "content") {
+			items[field] = content;
 		}
 
-		if (typeof data[field] !== 'undefined') {
-		items[field] = data[field];
+		if (typeof data[field] !== "undefined") {
+			items[field] = data[field];
 		}
 	});
 

@@ -7,10 +7,9 @@ import { useTheme } from "next-themes";
 
 const BACKEND_DB = [
 	{ name: "Python", iconName: "python" },
-	{ name: "PostgreSQL", iconName: "postgresql" },
-	{ name: "MySQL", iconName: "mysql" },
-	{ name: "Supabase", iconName: "supabase" },
 	{ name: "Swift", iconName: "swift" },
+	{ name: "PostgreSQL", iconName: "postgresql" },
+	{ name: "Supabase", iconName: "supabase" },
 ];
 
 const FRONTEND_DEPLOY = [
@@ -18,6 +17,7 @@ const FRONTEND_DEPLOY = [
 	{ name: "React", iconName: "react" },
 	{ name: "Next.js", iconName: "nextjs2" },
 	{ name: "Tailwind", iconName: "tailwindcss" },
+	{ name: "Radix UI", iconName: "radixui" },
 	{ name: "Vercel", iconName: "vercel" },
 ];
 
@@ -49,16 +49,19 @@ export function TechStackSidebar({ className }: { className?: string }) {
 
 	return (
 		<div
-			className={cn("w-full max-w-xl mx-auto p-4 rounded-xl", className)}
+			className={cn(
+				"w-full max-w-xl mx-auto p-4 rounded-xl cursor-default",
+				className
+			)}
 		>
 			<h3 className="text-4xl font-serif text-foreground text-center mb-12">
 				My Stack
 			</h3>
 			<div className="space-y-12">
-				<div className="flex flex-wrap items-center justify-center gap-6 md:gap-12">
+				<div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
 					{BACKEND_DB.map(renderItem)}
 				</div>
-				<div className="flex flex-wrap items-center justify-center gap-6 md:gap-12">
+				<div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
 					{FRONTEND_DEPLOY.map(renderItem)}
 				</div>
 			</div>
