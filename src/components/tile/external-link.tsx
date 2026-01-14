@@ -24,14 +24,13 @@ export function ExternalLinkTile({
 	return (
 		<Tile href={href} className={cn("group h-full", className)}>
 			<div className="relative h-full w-full flex flex-col justify-between overflow-hidden">
-				{/* Background Image Logic */}
 				{image && (
 					<div
 						className={cn(
 							"transition-transform duration-200 group-hover:scale-105",
 							imageStyle === "full"
 								? "absolute inset-0 z-0 h-full w-full"
-								: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 aspect-square z-0"
+								: "absolute mx-auto w-4/5 h-full left-1/2 -translate-x-1/2 translate-y-12 z-0"
 						)}
 					>
 						<Image
@@ -42,7 +41,7 @@ export function ExternalLinkTile({
 								"object-cover",
 								imageStyle === "full"
 									? "opacity-40 group-hover:opacity-60"
-									: "rounded-2xl shadow-2xl"
+									: "rounded-md border shadow-md hover:shadow-xl"
 							)}
 						/>
 					</div>
