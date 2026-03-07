@@ -1,9 +1,30 @@
-import Layout from "@/components/layouts/layout";
+import type { Metadata } from "next";
+import { Geist } from "next/font/google";
+import "@/styles/globals.css";
+
+import { meta } from "@/content/meta";
+
+const geist = Geist({
+	subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+	title: meta.title,
+	description: meta.description,
+};
 
 export default function RootLayout({
 	children,
-}: Readonly<{
+}: {
 	children: React.ReactNode;
-}>) {
-	return <Layout>{children}</Layout>;
+}) {
+	return (
+		<html lang="en">
+			<body className={`${geist.className} antialiased bg-white text-black`}>
+				<main className="min-h-screen px-6 py-16 max-w-lg mx-auto">
+					{children}
+				</main>
+			</body>
+		</html>
+	);
 }
