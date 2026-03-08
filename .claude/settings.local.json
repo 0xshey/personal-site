@@ -1,11 +1,13 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(git push:*)",
+      "Bash(git:*)"
+    ]
+  },
   "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "supabase"
-  ],
-  "permissions": {
-    "allow": [
-      "Bash(npm run:*)"
-    ]
-  }
+  ]
 }
