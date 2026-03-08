@@ -1,5 +1,6 @@
 export type ProjectLink = {
 	label: string;
+	shortDescription: string;
 	href: string;
 	external?: boolean;
 };
@@ -12,8 +13,17 @@ export type TextLink = {
 };
 
 export const projectLinks: ProjectLink[] = [
-	{ label: "Backboard", href: "https://backboard.dev", external: true },
-	{ label: "Resume", href: "/resume" },
+	{
+		label: "Backboard",
+		shortDescription: "NBA fantasy analytics dashboard.",
+		href: "https://backboard.dev",
+		external: true,
+	},
+	{
+		label: "Resume",
+		shortDescription: "Experience, education, and skills.",
+		href: "/resume",
+	},
 ];
 
 export const writingLinks: TextLink[] = [
