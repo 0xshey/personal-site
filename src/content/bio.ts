@@ -1,4 +1,4 @@
 export const bio: string[] = [
-	"Australian full-stack developer based in San Francisco. I build with Python and React, and care about making things that are both useful and well-crafted.",
-	"Recently graduated from Computer Science at Curtin University in Perth. Currently building Backboard — an NBA fantasy analytics tool.",
+	"I am a full stack software engineer, focussed on building user accessible tools and novel data visualisations of data that prioritise the experience for the user. Currently, I am building Backboard, a growing set of utilities for fantasy NBA managers.",
+	"When I am not building and learning with code, I'm either watching basketball, reading and discussing politics or exploring California with my beautiful wife.",
 ];

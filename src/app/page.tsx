@@ -4,26 +4,29 @@ import Project from "@/components/home/project";
 import IndexLink from "@/components/home/index-link";
 import { meta } from "@/content/meta";
 import { bio } from "@/content/bio";
-import { projectLinks, writingLinks, connectLinks } from "@/content/links";
+import { projectLinks, connectLinks } from "@/content/links";
+import { getAllArticles } from "@/lib/writing";
 
 export default function Home() {
+	const articles = getAllArticles();
 	return (
 		<MotionProvider>
 			<div className="flex flex-col gap-16 pt-16 md:pt-40">
-				<div className="flex flex-col gap-2">
-					<p className="text-sm font-medium">{meta.name}</p>
-					<p className="text-sm text-black/60">{meta.subtitle}</p>
-				</div>
-
-				<div className="flex flex-col gap-4">
-					{bio.map((paragraph, i) => (
-						<p
-							key={i}
-							className="text-sm leading-relaxed text-foreground"
-						>
-							{paragraph}
-						</p>
-					))}
+				<div className="flex flex-col gap-10">
+					<div className="flex flex-col gap-2">
+						<p className="text-sm font-medium">{meta.name}</p>
+						<p className="text-sm text-black/60">{meta.subtitle}</p>
+					</div>
+					<div className="flex flex-col gap-4">
+						{bio.map((paragraph, i) => (
+							<p
+								key={i}
+								className="text-sm leading-relaxed text-foreground"
+							>
+								{paragraph}
+							</p>
+						))}
+					</div>
 				</div>
 
 				<div className="flex flex-col gap-16">
@@ -37,8 +40,15 @@ export default function Home() {
 
 					<Section title="Writing">
 						<div className="flex flex-col">
-							{writingLinks.map((link) => (
-								<IndexLink key={link.title} link={link} />
+							{articles.map((article) => (
+								<IndexLink
+									key={article.slug}
+									link={{
+										title: article.title,
+										category: article.category,
+										href: `/writing/${article.slug}`,
+									}}
+								/>
 							))}
 						</div>
 					</Section>

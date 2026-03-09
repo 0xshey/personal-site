@@ -2,6 +2,7 @@
 title: "Why a Website?"
 date: "2026-01-08"
 excerpt: "Does developing a website really help me? Everyone has their reasons, but here is mine."
+category: "Development"
 ---
 
 # What is the purpose of a website?
