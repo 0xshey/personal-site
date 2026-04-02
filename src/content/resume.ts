@@ -36,6 +36,19 @@ export const projects: Project[] = [
 		],
 	},
 	{
+		title: "WebCV — Digital CV Builder",
+		year: "2025",
+		description:
+			"A platform for building and sharing digitised CVs online.",
+		bullets: [
+			"Built with React on the Next.js framework",
+			"Deployed to Vercel",
+		],
+		links: [
+			{ label: "Live", href: "https://webcv-dev.vercel.app/" },
+		],
+	},
+	{
 		title: "Shopping Assistant Web-App",
 		year: "2023",
 		description:

@@ -19,6 +19,12 @@ export const projectLinks: ProjectLink[] = [
 		href: "https://backboard.dev",
 		external: true,
 	},
+	{
+		label: "WebCV",
+		shortDescription: "Build and share your CV online",
+		href: "https://webcv-dev.vercel.app/",
+		external: true,
+	},
 ];
 
 
@@ -40,10 +46,10 @@ export const connectLinks: TextLink[] = [
 		href: "https://www.instagram.com/0xshey/",
 		external: true,
 	},
-	{
-		title: "Threads",
-		category: "Social",
-		href: "https://threads.net/0xshey",
-		external: true,
-	},
+	// {
+	// 	title: "Threads",
+	// 	category: "Social",
+	// 	href: "https://threads.net/0xshey",
+	// 	external: true,
+	// },
 ];

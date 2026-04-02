@@ -12,18 +12,18 @@ export default function Markdown({ content }: { content: string }) {
 				rehypePlugins={[rehypeKatex]}
 				components={{
 					h1: ({ children }) => (
-						<p className="text-sm font-medium text-black pt-4 first:pt-0">
+						<p className="text-sm font-medium text-foreground pt-4 first:pt-0">
 							{children}
 						</p>
 					),
 					h2: ({ children }) => (
-						<p className="text-sm font-medium text-black pt-2">{children}</p>
+						<p className="text-sm font-medium text-foreground pt-2">{children}</p>
 					),
 					h3: ({ children }) => (
-						<p className="text-sm font-medium text-black/60">{children}</p>
+						<p className="text-sm font-medium text-foreground/60">{children}</p>
 					),
 					p: ({ children }) => (
-						<p className="text-sm leading-relaxed text-black/60">{children}</p>
+						<p className="text-sm leading-relaxed text-foreground/60">{children}</p>
 					),
 					a: ({ href, children }) => (
 						<a
@@ -38,7 +38,7 @@ export default function Markdown({ content }: { content: string }) {
 						</a>
 					),
 					strong: ({ children }) => (
-						<strong className="font-medium text-black">{children}</strong>
+						<strong className="font-medium text-foreground">{children}</strong>
 					),
 					em: ({ children }) => <em className="italic">{children}</em>,
 					code: ({ children, className }) => {
@@ -62,8 +62,8 @@ export default function Markdown({ content }: { content: string }) {
 						<ol className="flex flex-col gap-1">{children}</ol>
 					),
 					li: ({ children }) => (
-						<li className="text-sm text-black/60 flex gap-2">
-							<span className="text-black/30 shrink-0">—</span>
+						<li className="text-sm text-foreground/60 flex gap-2">
+							<span className="text-foreground/30 shrink-0">—</span>
 							<span>{children}</span>
 						</li>
 					),

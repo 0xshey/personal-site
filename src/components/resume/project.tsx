@@ -4,15 +4,15 @@ export default function ResumeProject({ project }: { project: Project }) {
 	return (
 		<div className="flex flex-col gap-3">
 			<div className="flex gap-6">
-				<p className="text-sm text-black/40 shrink-0 w-10">{project.year}</p>
+				<p className="text-sm text-foreground/40 shrink-0 w-10">{project.year}</p>
 				<p className="text-sm">{project.title}</p>
 			</div>
-			<p className="text-sm leading-relaxed text-black/60 pl-16">
+			<p className="text-sm leading-relaxed text-foreground/60 pl-16">
 				{project.description}
 			</p>
 			<ul className="flex flex-col gap-1 pl-16">
 				{project.bullets.map((bullet) => (
-					<li key={bullet} className="text-sm text-black/40">
+					<li key={bullet} className="text-sm text-foreground/40">
 						— {bullet}
 					</li>
 				))}

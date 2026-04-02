@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={`${geist.className} antialiased bg-white text-black`}>
+			<body className={`${geist.className} antialiased bg-background text-foreground`}>
 				<main className="min-h-screen px-6 py-16 max-w-lg mx-auto">
 					{children}
 				</main>

@@ -41,7 +41,7 @@ export default async function ArticlePage({
 
 				<div className="flex flex-col gap-2">
 					<p className="text-sm font-medium">{article.title}</p>
-					<p className="text-sm text-black/40">{article.date}</p>
+					<p className="text-sm text-foreground/40">{article.date}</p>
 				</div>
 
 				<Markdown content={article.content} />

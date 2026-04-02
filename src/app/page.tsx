@@ -15,7 +15,7 @@ export default function Home() {
 				<div className="flex flex-col gap-10">
 					<div className="flex flex-col gap-2">
 						<p className="text-sm font-medium">{meta.name}</p>
-						<p className="text-sm text-black/60">{meta.subtitle}</p>
+						<p className="text-sm text-foreground/60">{meta.subtitle}</p>
 					</div>
 					<div className="flex flex-col gap-4">
 						{bio.map((paragraph, i) => (

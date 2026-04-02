@@ -7,7 +7,7 @@ export default function ResumeSection({
 }) {
 	return (
 		<section className="flex flex-col gap-4">
-			<p className="text-sm text-black/40">{label}</p>
+			<p className="text-sm text-foreground/40">{label}</p>
 			{children}
 		</section>
 	);

@@ -20,14 +20,14 @@ export default function ResumePage() {
 
 				<div className="flex flex-col gap-1">
 					<p className="text-sm">{meta.fullName}</p>
-					<p className="text-sm text-black/40">San Francisco, CA</p>
+					<p className="text-sm text-foreground/40">San Francisco, CA</p>
 				</div>
 
 				<div className="flex flex-col gap-12">
 					<ResumeSection label="About">
 						<div className="flex flex-col gap-3">
 							{about.map((p, i) => (
-								<p key={i} className="text-sm leading-relaxed text-black/60">
+								<p key={i} className="text-sm leading-relaxed text-foreground/60">
 									{p}
 								</p>
 							))}
