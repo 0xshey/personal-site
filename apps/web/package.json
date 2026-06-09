@@ -37,6 +37,7 @@
     "tech-stack-icons": "^3.3.2"
   },
   "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
     "@types/node": "^20",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
