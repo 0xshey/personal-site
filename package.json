@@ -33,12 +33,14 @@
     "remark-html": "^16.0.1",
     "remark-math": "^6.0.0",
     "tailwind-merge": "^2.6.0",
-    "tech-stack-icons": "^3.3.2"
+    "tech-stack-icons": "^3.3.2",
+    "three": "^0.184.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
+    "@types/three": "^0.184.1",
     "eslint": "^9.39.2",
     "eslint-config-next": "^16.0.10",
     "postcss": "^8",
